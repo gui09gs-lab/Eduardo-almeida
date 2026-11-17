@@ -19,9 +19,6 @@
   .routes td:first-child { font-family: var(--serif); font-size: 1.35rem; font-weight: 600; white-space: nowrap; }
   .routes td b { font-weight: 500; }
   .table-wrap { overflow-x: auto; border-top: 1px solid var(--line); }
-  .chip { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 18px; padding: 8px 8px 8px 14px; border: 1px solid rgba(196, 163, 108, .5); font-size: .74rem; letter-spacing: .14em; text-transform: uppercase; color: var(--brass-lt); }
-  .chip b { color: var(--cream); font-weight: 600; }
-  .chip button { width: 24px; height: 24px; border: 0; background: rgba(241, 235, 224, .08); color: var(--cream); cursor: pointer; font-size: 14px; line-height: 1; }
   @media (max-width: 720px) {
     .routes thead { display: none; }
     .routes tr { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 16px; padding: 18px 0; border-bottom: 1px solid var(--line); }
@@ -41,9 +38,9 @@
       <div class="hangar__top">
         <div>
           <span class="stamp">Acesso reservado · Hangar</span>
-          <h1>Escolha a aeronave <em>da sua missão.</em></h1>
+          <h1>Escolha a aeronave <em>da sua viagem.</em></h1>
         </div>
-        <p>Oito categorias, oito codinomes. Escolha e monte o briefing.</p>
+        <p>Oito categorias, oito codinomes. Escolha e planeje a viagem logo abaixo.</p>
       </div>
 
       <div class="hg">
@@ -73,7 +70,7 @@
           <div class="meter" data-m="vel"><div class="meter__t">Cruzeiro <b>0</b></div><div class="meter__bar"><i></i></div></div>
           <div class="meter" data-m="pax"><div class="meter__t">Cabine <b>0</b></div><div class="meter__bar"><i></i></div></div>
           <p class="hg__models"><small>Modelos da categoria</small><span data-h="models"></span></p>
-          <button class="btn btn--block" type="button" data-h="selecionar">Selecionar para a missão</button>
+          <button class="btn btn--block" type="button" data-h="selecionar">Usar nesta viagem</button>
         </aside>
       </div>
       <p class="hg__hint">Use <kbd>←</kbd> <kbd>→</kbd> para trocar de aeronave. Valores aproximados por categoria.</p>
@@ -84,15 +81,15 @@
     <div class="wrap">
       <div class="head rv">
         <div>
-          <span class="label"><b>02</b> Briefing da missão</span>
+          <span class="label"><b>02</b> Planejar viagem</span>
           <h2>Diga para onde. <em>Nós dizemos com o quê.</em></h2>
         </div>
         <p>Rota e passageiros bastam. O resto é com a gente.</p>
       </div>
       <div class="brief rv">
         <form class="brief__form" novalidate>
-          <span class="stamp">Briefing</span>
-          <h2>Dados da missão</h2>
+          <span class="stamp">Sua viagem</span>
+          <h2>Dados da viagem</h2>
           <p>Comece a digitar e escolha a cidade na lista.</p>
           <div class="chip" data-b="chip" hidden>Aeronave escolhida: <b></b><button type="button" aria-label="Remover aeronave escolhida">×</button></div>
           <input type="hidden" name="aeronave">
@@ -111,7 +108,7 @@
             <label class="field full"><span>Observações</span><textarea name="obs" placeholder="Bagagem, pets, catering, transfer..."></textarea></label>
           </div>
           <datalist id="cidades"></datalist>
-          <button class="btn btn--block" type="submit" style="margin-top:22px">Enviar briefing <svg class="arr" viewBox="0 0 22 10" aria-hidden="true"><path d="M0 5h20M16 1l4 4-4 4"/></svg></button>
+          <button class="btn btn--block" type="submit" style="margin-top:22px">Enviar pedido de viagem <svg class="arr" viewBox="0 0 22 10" aria-hidden="true"><path d="M0 5h20M16 1l4 4-4 4"/></svg></button>
         </form>
 
         <div class="brief__out" aria-live="polite">

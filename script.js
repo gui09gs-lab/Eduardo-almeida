@@ -45,7 +45,8 @@ const ICON = {
 };
 
 const PAGINAS = [
-  ['fretamento', 'servicos.html', 'Fretamento'],
+  ['fretamento', 'servicos.html', 'Viagens'],
+  ['destinos', 'index.html#destinos', 'Destinos'],
   ['frota', 'frota.html', 'O Hangar'],
   ['venda', 'aeronaves.html', 'Aeronaves à venda'],
   ['sobre', 'sobre.html', 'A empresa'],
@@ -67,9 +68,9 @@ function montarCabecalho() {
     <a class="brand" href="./" aria-label="Eduardo Almeida Aviação Executiva, início">${ICON.mark}<span class="brand__txt"><b>Eduardo Almeida</b><small>Aviação Executiva</small></span></a>
     <nav class="nav" id="nav" aria-label="Principal">
       ${PAGINAS.map(([id, href, nome]) => `<a href="${href}"${id === page ? ' aria-current="page"' : ''}>${nome}</a>`).join('')}
-      <a class="btn nav__cta" href="contato.html#cotacao">Solicitar cotação</a>
+      <a class="btn nav__cta" href="index.html#planejar">Planejar viagem</a>
     </nav>
-    <a class="btn btn--sm topbar__cta" href="contato.html#cotacao">Solicitar cotação</a>
+    <a class="btn btn--sm topbar__cta" href="index.html#planejar">Planejar viagem</a>
     <button class="menu" id="menu" type="button" aria-expanded="false" aria-controls="nav" aria-label="Abrir menu"><span></span><span></span></button>
   </div></div>`;
   document.body.prepend(util, header);
@@ -86,13 +87,13 @@ function montarRodape() {
     <div class="foot__top">
       <div>
         <a class="brand" href="./" aria-label="Início">${ICON.mark}<span class="brand__txt"><b>Eduardo Almeida</b><small>Aviação Executiva</small></span></a>
-        <p class="foot__about">Fretamento de jatos, turboélices e helicópteros, missões especiais e intermediação de compra e venda de aeronaves. Atendimento pessoal, 24 horas.</p>
+        <p class="foot__about">Viagens executivas porta a porta, no Brasil e no exterior. Atendimento pessoal, 24 horas.</p>
       </div>
-      <div><h4>Fretamento</h4><ul>
-        <li><a href="servicos.html#jatos">Jatos executivos</a></li>
-        <li><a href="servicos.html#helicopteros">Helicópteros</a></li>
-        <li><a href="servicos.html#turboelices">Turboélices</a></li>
-        <li><a href="servicos.html#empty-legs">Trechos de oportunidade</a></li>
+      <div><h4>Viagens</h4><ul>
+        <li><a href="servicos.html#negocios">Negócios</a></li>
+        <li><a href="servicos.html#lazer">Família e férias</a></li>
+        <li><a href="servicos.html#traslados">Traslados de helicóptero</a></li>
+        <li><a href="servicos.html#internacional">Internacional</a></li>
         <li><a href="servicos.html#missoes">Missões especiais</a></li>
       </ul></div>
       <div><h4>Proprietários</h4><ul>
@@ -118,7 +119,7 @@ function montarRodape() {
   document.body.appendChild(footer);
   const wa = document.createElement('a');
   wa.className = 'wa';
-  wa.href = waLink('Olá! Gostaria de falar sobre um voo executivo.');
+  wa.href = waLink('Olá! Gostaria de planejar uma viagem executiva.');
   wa.target = '_blank'; wa.rel = 'noopener';
   wa.setAttribute('aria-label', 'Falar pelo WhatsApp');
   wa.innerHTML = ICON.wa;
@@ -395,6 +396,43 @@ function recomendar(dist, pax) {
   return { escolha, alt, horas, escala };
 }
 
+// ---------- Destinos: tempo de voo calculado a partir de São Paulo ----------
+const DESTINOS = [
+  { nome: 'Trancoso', regiao: 'Bahia', img: 'dest-trancoso' },
+  { nome: 'Angra dos Reis', regiao: 'Rio de Janeiro', img: 'dest-angra' },
+  { nome: 'Punta del Este', regiao: 'Uruguai', img: 'dest-punta' },
+  { nome: 'Campos do Jordão', regiao: 'São Paulo', img: 'dest-campos' },
+  { nome: 'Miami', regiao: 'Estados Unidos', img: 'dest-miami' },
+  { nome: 'Lisboa', regiao: 'Portugal', img: 'dest-lisboa' }
+];
+
+function renderDestinos() {
+  document.querySelectorAll('[data-destinos]').forEach(el => {
+    el.innerHTML = DESTINOS.map((d, i) => {
+      const r = recomendar(distKm('São Paulo', d.nome), 4);
+      return `<a class="dest rv" style="--d:${(i % 3) * .08}s" href="index.html?destino=${encodeURIComponent(d.nome)}#planejar" data-destino="${d.nome}">
+        <img src="img/${d.img}.jpg" alt="${d.nome}, ${d.regiao}" loading="lazy" width="800" height="1000">
+        <span class="dest__b">
+          <small>${d.regiao}</small>
+          <b>${d.nome}</b>
+          <span class="dest__meta">${fmtH(r.horas)} de voo · Codinome ${r.escolha.codinome}</span>
+          <span class="dest__go">Planejar ${ICON.arr}</span>
+        </span>
+      </a>`;
+    }).join('');
+  });
+  // na mesma página do planejador, o clique preenche o destino sem recarregar
+  document.addEventListener('click', e => {
+    const a = e.target.closest && e.target.closest('[data-destino]');
+    const form = document.querySelector('#briefing form');
+    if (!a || !form) return;
+    e.preventDefault();
+    form.destino.value = a.dataset.destino;
+    form.destino.dispatchEvent(new Event('input', { bubbles: true }));
+    document.getElementById('briefing').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+}
+
 function initBriefing() {
   const box = document.getElementById('briefing');
   if (!box) return;
@@ -437,6 +475,8 @@ function initBriefing() {
     out.classList.add('has');
     return { o, d, a, horas, dist };
   }
+  const qd = new URLSearchParams(location.search).get('destino');
+  if (qd && acharCidade(qd)) form.destino.value = acharCidade(qd);
   form.addEventListener('input', calcular);
   form.addEventListener('change', calcular);
   form.addEventListener('submit', e => {
@@ -445,7 +485,7 @@ function initBriefing() {
     const r = calcular();
     const data = form.data.value ? form.data.value.split('-').reverse().join('/') : 'a combinar';
     const linhas = [
-      'Olá! Briefing de missão enviado pelo Hangar:',
+      'Olá! Pedido de viagem enviado pelo site:',
       `*Rota:* ${form.origem.value} → ${form.destino.value}`,
       `*Data:* ${data}${form.hora.value ? ' às ' + form.hora.value : ''}`,
       `*Passageiros:* ${form.pax.value}`,
@@ -466,6 +506,7 @@ initMenu();
 initTopbar();
 initForms();
 initHangar();
+renderDestinos();
 initBriefing();
 initWaLinks();
 initReveal();

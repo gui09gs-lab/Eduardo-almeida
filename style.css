@@ -573,8 +573,8 @@ body::after { content: ""; position: fixed; inset: -50%; z-index: 30; pointer-ev
 .bars::before, .bars::after { content: ""; position: absolute; left: 0; right: 0; height: 50.5%; background: #000; animation: bars 1.6s .2s cubic-bezier(.7, 0, .2, 1) forwards; }
 .bars::before { top: 0; }
 .bars::after { bottom: 0; animation-name: bars-b; }
-@keyframes bars { to { height: 7vh; transform: translateY(-7vh); } }
-@keyframes bars-b { to { height: 7vh; transform: translateY(7vh); } }
+@keyframes bars { to { height: 0; } }
+@keyframes bars-b { to { height: 0; } }
 .hero .label, .hero h1, .hero__lead, .hero__actions, .hero .quote, .hero__foot { opacity: 0; animation: rise 1.2s var(--ease) forwards; }
 .hero .label { animation-delay: 1.3s; }
 .hero h1 { animation-delay: 1.45s; }
@@ -843,4 +843,70 @@ body::after { content: ""; position: fixed; inset: -50%; z-index: 30; pointer-ev
   .tabs button { flex: none; white-space: nowrap; }
   .hero .quote { display: none; }
   .hero__grid { padding-bottom: 64px; }
+}
+
+/* ---------- foco na viagem ---------- */
+.hero__grid--solo { grid-template-columns: minmax(0, 900px); }
+.hero__grid--solo h1 { font-size: clamp(3rem, 1.6rem + 4.4vw, 5.8rem); }
+.chip { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 18px; padding: 8px 8px 8px 14px; border: 1px solid rgba(196, 163, 108, .5); font-size: .74rem; letter-spacing: .14em; text-transform: uppercase; color: var(--brass-lt); }
+.chip b { color: var(--cream); font-weight: 600; }
+.chip button { width: 24px; height: 24px; border: 0; background: rgba(241, 235, 224, .08); color: var(--cream); cursor: pointer; font-size: 14px; line-height: 1; }
+
+/* destinos */
+.dests { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.dest { position: relative; display: block; aspect-ratio: 4 / 5; overflow: hidden; background: var(--noir-2); isolation: isolate; color: var(--cream); }
+.dest img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; transition: transform 1.2s var(--ease), filter .6s; filter: saturate(.85); }
+.dest::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(8, 9, 11, .1) 30%, rgba(8, 9, 11, .92) 100%); }
+.dest:hover img { transform: scale(1.06); filter: saturate(1); }
+.dest__b { position: absolute; left: 0; right: 0; bottom: 0; padding: 28px 26px; display: flex; flex-direction: column; gap: 6px; }
+.dest__b small { font-size: .68rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: var(--brass-lt); }
+.dest__b b { font-family: var(--serif); font-size: clamp(1.9rem, 1.5rem + 1vw, 2.5rem); font-weight: 500; line-height: 1.05; }
+.dest__meta { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: .82rem; color: rgba(241, 235, 224, .72); }
+.dest__meta span + span::before { content: "·"; margin-right: 16px; color: var(--brass); }
+.dest__go { display: inline-flex; align-items: center; gap: 10px; margin-top: 12px; font-size: .7rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--brass-lt); }
+.dest__go .arr { width: 20px; height: 10px; fill: none; stroke: currentColor; stroke-width: 1.4; transition: transform .25s var(--ease); }
+.dest:hover .dest__go .arr { transform: translateX(4px); }
+.dest::after { content: ""; position: absolute; inset: 0; border: 1px solid rgba(196, 163, 108, 0); transition: border-color .4s; pointer-events: none; }
+.dest:hover::after { border-color: rgba(196, 163, 108, .5); }
+
+/* faixa secundária (compra e venda) */
+.banner { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); align-items: stretch; border: 1px solid var(--line); background: var(--noir-1); padding: 0; }
+.banner img { width: 100%; height: 100%; min-height: 360px; object-fit: cover; filter: grayscale(1) contrast(1.05); }
+.banner__b { padding: clamp(32px, 5vw, 64px); display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 18px; }
+.banner__b h2 { font-size: clamp(2rem, 1.6rem + 1.4vw, 3rem); }
+.banner__b p { color: var(--mute); }
+.banner__b .btn { margin-top: 10px; }
+.wrap.banner { padding-inline: 0; max-width: var(--max); }
+
+.steps--journey li::before { font-size: 2.8rem; }
+
+@media (max-width: 1020px) {
+  .dests { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .banner { grid-template-columns: minmax(0, 1fr); }
+  .banner img { min-height: 240px; height: 240px; }
+  .wrap.banner { margin-inline: var(--gutter); width: auto; }
+}
+@media (max-width: 720px) {
+  .dests { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; margin-inline: calc(var(--gutter) * -1); padding: 0 var(--gutter) 8px; scroll-padding-inline: var(--gutter); scrollbar-width: none; }
+  .dests::-webkit-scrollbar { display: none; }
+  .dest { flex: 0 0 78%; scroll-snap-align: start; }
+  .hero__grid--solo h1 { font-size: 2.8rem; }
+  .hero { min-height: 640px; }
+  .hero__grid--solo { padding-bottom: 72px; }
+  .steps--journey { grid-template-columns: 1fr 1fr; }
+  .steps--journey li + li { margin-top: 0; padding-left: 16px; border-left: 1px solid var(--line); }
+  .steps--journey li:nth-child(3) { padding-left: 0; border-left: 0; }
+  .steps--journey li:nth-child(n+3) { margin-top: 26px; }
+  .steps--journey li::before { font-size: 2.2rem; }
+  .steps--journey h3 { font-size: 1.3rem; }
+  .steps--journey p { font-size: .88rem; }
+}
+
+/* menu com 6 itens: compacta antes de virar menu de celular */
+.nav a { white-space: nowrap; }
+@media (max-width: 1240px) and (min-width: 1021px) {
+  .nav { gap: 20px; }
+  .nav a { font-size: .68rem; letter-spacing: .12em; }
+  .topbar__cta { display: none; }
+  .brand__txt b { font-size: 1.15rem; }
 }

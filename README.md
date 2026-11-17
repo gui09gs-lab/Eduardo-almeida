@@ -3,8 +3,8 @@
 Site institucional de fretamento de jatos, turboélices e helicópteros, missões especiais e compra e venda de aeronaves. Sem build nem dependências: HTML, CSS e JavaScript puros.
 
 ## Páginas
-- `index.html`: início (cotação rápida, soluções, frota, como funciona, aeronaves à venda, perguntas frequentes)
-- `servicos.html`: fretamento (jatos, helicópteros, turboélices, contas corporativas, trechos de oportunidade, missões especiais)
+- `index.html`: início com foco na **viagem**: planejador de viagem (tempo de voo e aeronave indicada), porta a porta, destinos, tipos de viagem, a bordo; a aeronave e a compra e venda vêm depois, como apoio
+- `servicos.html`: **Viagens** (negócios, família e férias, traslados de helicóptero, internacional, contas corporativas, destinos, trechos de oportunidade, missões especiais)
 - `frota.html`: **O Hangar**, seletor de aeronaves com codinomes, ficha técnica em barras e **briefing da missão** (calcula distância, tempo de voo e indica a aeronave)
 - `aeronaves.html`: aeronaves à venda (aba separada), busca sob encomenda, serviços para proprietários e formulário de avaliação
 - `sobre.html`: a empresa, princípios e conformidade
@@ -13,7 +13,8 @@ Site institucional de fretamento de jatos, turboélices e helicópteros, missõe
 ## Onde editar
 - **Contatos** (WhatsApp, telefone, e-mail, endereço): objeto `CONTATO` no início do `script.js`.
 - **Frota e codinomes**: lista `FROTA` no `script.js` (Atlântico, Soberano, Vanguarda, Ágil, Planalto, Sertão, Litoral, Metrópole).
-- **Cidades do briefing**: lista `CIDADES` no `script.js` (nome e coordenadas).
+- **Cidades do planejador**: lista `CIDADES` no `script.js` (nome e coordenadas).
+- **Destinos em destaque**: lista `DESTINOS` no `script.js` (o tempo de voo é calculado sozinho).
 - **Aeronaves à venda**: lista `VENDA` no `script.js` (modelo, ano, horas, assentos, local, foto, etiqueta).
 - **Cores e fontes**: variáveis no início do `style.css` e no bloco *BLACK TIE* no fim dele (preto-grafite e dourado champanhe; Cormorant Garamond + Inter Tight).
 - Cabeçalho e rodapé são montados pelo `script.js`, então qualquer mudança vale para todas as páginas.
