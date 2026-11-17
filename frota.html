@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Frota · Eduardo Almeida Aviação Executiva</title>
-<meta name="description" content="Jatos leves, médios, super médios e de longo alcance, turboélices e helicópteros executivos para fretamento.">
+<title>O Hangar · Eduardo Almeida Aviação Executiva</title>
+<meta name="description" content="Escolha a aeronave da sua missão: jatos executivos, turboélices e helicópteros, com ficha técnica e briefing de voo.">
 <meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="#0b121c">
+<meta name="theme-color" content="#08090b">
 <script>document.documentElement.classList.add("js")</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,9 +16,12 @@
   .routes { width: 100%; border-collapse: collapse; font-size: .95rem; }
   .routes th, .routes td { text-align: left; padding: 18px 16px 18px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
   .routes th { font-size: .66rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--mute); }
-  .routes td:first-child { font-family: var(--serif); font-size: 1.35rem; font-weight: 600; color: var(--navy); white-space: nowrap; }
-  .routes td b { font-weight: 500; color: var(--navy); }
+  .routes td:first-child { font-family: var(--serif); font-size: 1.35rem; font-weight: 600; white-space: nowrap; }
+  .routes td b { font-weight: 500; }
   .table-wrap { overflow-x: auto; border-top: 1px solid var(--line); }
+  .chip { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 18px; padding: 8px 8px 8px 14px; border: 1px solid rgba(196, 163, 108, .5); font-size: .74rem; letter-spacing: .14em; text-transform: uppercase; color: var(--brass-lt); }
+  .chip b { color: var(--cream); font-weight: 600; }
+  .chip button { width: 24px; height: 24px; border: 0; background: rgba(241, 235, 224, .08); color: var(--cream); cursor: pointer; font-size: 14px; line-height: 1; }
   @media (max-width: 720px) {
     .routes thead { display: none; }
     .routes tr { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 16px; padding: 18px 0; border-bottom: 1px solid var(--line); }
@@ -33,49 +36,128 @@
 <body data-page="frota">
 
 <main id="conteudo">
-  <section class="page-hero">
-    <img src="img/jato-frente.jpg" alt="" width="1400" height="933" fetchpriority="high">
+  <section class="hangar" id="hangar" aria-label="Seletor de aeronave">
     <div class="wrap">
-      <nav class="crumbs" aria-label="Você está em"><a href="./">Início</a><span>/</span><span>Frota</span></nav>
-      <span class="label"><b>EA</b> Frota</span>
-      <h1>Oito categorias, <em>uma só curadoria.</em></h1>
-      <p class="lead">Selecionamos a aeronave pela missão, não pelo estoque. Compare as categorias e fale com a nossa equipe para receber os modelos disponíveis na data do seu voo.</p>
+      <div class="hangar__top">
+        <div>
+          <span class="stamp">Acesso reservado · Hangar</span>
+          <h1>Escolha a aeronave <em>da sua missão.</em></h1>
+        </div>
+        <p>Oito categorias, cada uma com seu codinome. Compare alcance, velocidade e cabine, selecione a aeronave e monte o briefing do voo logo abaixo.</p>
+      </div>
+
+      <div class="hg">
+        <ul class="hg__list" role="tablist" aria-label="Aeronaves"></ul>
+
+        <div class="hg__stage" aria-live="polite">
+          <span class="hg__scan" aria-hidden="true"></span>
+          <span class="hg__corner hg__corner--tl" aria-hidden="true"></span>
+          <span class="hg__corner hg__corner--tr" aria-hidden="true"></span>
+          <span class="hg__corner hg__corner--bl" aria-hidden="true"></span>
+          <span class="hg__corner hg__corner--br" aria-hidden="true"></span>
+          <div class="hg__file"><span class="stamp">Confidencial</span><small data-h="num">Dossiê</small></div>
+          <div class="hg__cap">
+            <span data-h="tipo">Categoria</span>
+            <h2 data-h="cod">Codinome</h2>
+            <p data-h="ideal"></p>
+          </div>
+          <div class="hg__nav">
+            <button type="button" data-h="prev" aria-label="Aeronave anterior"><svg viewBox="0 0 18 10" aria-hidden="true"><path d="M18 5H2M6 1 2 5l4 4"/></svg></button>
+            <button type="button" data-h="next" aria-label="Próxima aeronave"><svg viewBox="0 0 18 10" aria-hidden="true"><path d="M0 5h16M12 1l4 4-4 4"/></svg></button>
+          </div>
+        </div>
+
+        <aside class="hg__spec" aria-label="Ficha técnica">
+          <h3>Ficha técnica</h3>
+          <div class="meter" data-m="alcance"><div class="meter__t">Alcance <b>0</b></div><div class="meter__bar"><i></i></div></div>
+          <div class="meter" data-m="vel"><div class="meter__t">Cruzeiro <b>0</b></div><div class="meter__bar"><i></i></div></div>
+          <div class="meter" data-m="pax"><div class="meter__t">Cabine <b>0</b></div><div class="meter__bar"><i></i></div></div>
+          <p class="hg__models"><small>Modelos da categoria</small><span data-h="models"></span></p>
+          <button class="btn btn--block" type="button" data-h="selecionar">Selecionar para a missão</button>
+        </aside>
+      </div>
+      <p class="hg__hint">Use <kbd>←</kbd> <kbd>→</kbd> para trocar de aeronave. Valores aproximados por categoria.</p>
+    </div>
+  </section>
+
+  <section class="section section--paper" id="briefing">
+    <div class="wrap">
+      <div class="head rv">
+        <div>
+          <span class="label"><b>02</b> Briefing da missão</span>
+          <h2>Diga para onde. <em>Nós dizemos com o quê.</em></h2>
+        </div>
+        <p>Informe a rota e o número de passageiros: calculamos a distância, o tempo estimado de voo e a aeronave mais indicada. A proposta final é confirmada pela nossa equipe.</p>
+      </div>
+      <div class="brief rv">
+        <form class="brief__form" novalidate>
+          <span class="stamp">Briefing</span>
+          <h2>Dados da missão</h2>
+          <p>Comece a digitar e escolha a cidade na lista.</p>
+          <div class="chip" data-b="chip" hidden>Aeronave escolhida: <b></b><button type="button" aria-label="Remover aeronave escolhida">×</button></div>
+          <input type="hidden" name="aeronave">
+          <div class="fields">
+            <label class="field"><span>Origem</span><input name="origem" list="cidades" value="São Paulo" required autocomplete="off"></label>
+            <label class="field"><span>Destino</span><input name="destino" list="cidades" placeholder="Ex.: Punta del Este" required autocomplete="off"></label>
+            <label class="field"><span>Data</span><input type="date" name="data"></label>
+            <label class="field"><span>Horário</span><input type="time" name="hora"></label>
+            <label class="field"><span>Passageiros</span>
+              <select name="pax">
+                <option value="2">1 a 2</option><option value="4" selected>3 a 4</option><option value="6">5 a 6</option>
+                <option value="8">7 a 8</option><option value="10">9 a 10</option><option value="14">11 a 14</option><option value="16">15 ou 16</option>
+              </select>
+            </label>
+            <label class="field"><span>Nome</span><input name="nome" autocomplete="name" required></label>
+            <label class="field full"><span>Observações</span><textarea name="obs" placeholder="Bagagem, pets, catering, transfer..."></textarea></label>
+          </div>
+          <datalist id="cidades"></datalist>
+          <button class="btn btn--block" type="submit" style="margin-top:22px">Enviar briefing <svg class="arr" viewBox="0 0 22 10" aria-hidden="true"><path d="M0 5h20M16 1l4 4-4 4"/></svg></button>
+        </form>
+
+        <div class="brief__out" aria-live="polite">
+          <img src="img/hangar-noite.jpg" alt="" loading="lazy" width="1400" height="2100">
+          <div class="brief__empty">
+            <span class="stamp">Aguardando rota</span>
+            <b>A recomendação aparece aqui assim que a rota for definida.</b>
+            <span>Origem, destino e passageiros bastam para começar.</span>
+          </div>
+          <div class="brief__res">
+            <span class="route"></span>
+            <h3 data-b="titulo"></h3>
+            <p class="brief__alt" data-b="tipo"></p>
+            <div class="brief__nums">
+              <div><small>Distância</small><b data-b="dist"></b></div>
+              <div><small>Tempo de voo</small><b data-b="tempo"></b></div>
+              <div><small>Lugares</small><b data-b="lug"></b></div>
+            </div>
+            <p class="brief__alt" data-b="alt"></p>
+            <p class="brief__note">Estimativa em linha reta, com margem de rota e subida. Ventos, escalas e restrições de pista podem mudar a indicação.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <section class="section">
     <div class="wrap">
-      <div class="tabs tabs--light rv" role="tablist" aria-label="Filtrar frota" data-filter="#frota-lista" data-count>
-        <button type="button" role="tab" data-cat="todas" aria-selected="true">Todas</button>
-        <button type="button" role="tab" data-cat="jatos" aria-selected="false">Jatos executivos</button>
-        <button type="button" role="tab" data-cat="turbo" aria-selected="false">Turboélices</button>
-        <button type="button" role="tab" data-cat="heli" aria-selected="false">Helicópteros</button>
-      </div>
-      <div class="fleet" id="frota-lista" data-frota="light"></div>
-      <p class="disclaimer">Capacidades, alcance e velocidade de cruzeiro aproximados. Variam conforme o modelo, a configuração e as condições do voo.</p>
-    </div>
-  </section>
-
-  <section class="section section--paper">
-    <div class="wrap">
       <div class="head rv">
         <div>
-          <span class="label"><b>02</b> Referência de rotas</span>
-          <h2>Qual categoria <em>para o seu trecho?</em></h2>
+          <span class="label"><b>03</b> Referência de rotas</span>
+          <h2>Destinos frequentes <em>a partir de São Paulo.</em></h2>
         </div>
-        <p>Exemplos a partir de São Paulo para ajudar na escolha. O tempo de voo é aproximado e depende de vento, rota e aeronave.</p>
+        <p>Tempos aproximados. Dependem de vento, rota e aeronave.</p>
       </div>
       <div class="table-wrap rv">
         <table class="routes">
-          <thead><tr><th>Destino</th><th>Tempo aproximado</th><th>Categoria indicada</th><th>Observação</th></tr></thead>
+          <thead><tr><th>Destino</th><th>Tempo aproximado</th><th>Codinome indicado</th><th>Observação</th></tr></thead>
           <tbody>
-            <tr><td>Rio de Janeiro</td><td data-th="Tempo">45 min</td><td data-th="Categoria"><b>Jato leve</b> ou turboélice</td><td data-th="Observação">Ida e volta no mesmo dia</td></tr>
-            <tr><td>Angra dos Reis</td><td data-th="Tempo">50 min</td><td data-th="Categoria"><b>Helicóptero biturbina</b></td><td data-th="Observação">Pouso direto na propriedade</td></tr>
-            <tr><td>Brasília</td><td data-th="Tempo">1h20</td><td data-th="Categoria"><b>Jato leve</b> ou médio</td><td data-th="Observação">Agendas institucionais</td></tr>
-            <tr><td>Trancoso</td><td data-th="Tempo">1h50</td><td data-th="Categoria"><b>Jato médio</b></td><td data-th="Observação">Pista local para jatos</td></tr>
-            <tr><td>Punta del Este</td><td data-th="Tempo">2h30</td><td data-th="Categoria"><b>Jato médio</b> ou super médio</td><td data-th="Observação">Despacho internacional incluído</td></tr>
-            <tr><td>Miami</td><td data-th="Tempo">8h30</td><td data-th="Categoria"><b>Longo alcance</b></td><td data-th="Observação">Sem escala técnica</td></tr>
-            <tr><td>Lisboa</td><td data-th="Tempo">10h</td><td data-th="Categoria"><b>Longo alcance</b></td><td data-th="Observação">Cabine com área de descanso</td></tr>
+            <tr><td>Rio de Janeiro</td><td data-th="Tempo">45 min</td><td data-th="Codinome"><b>Ágil</b> ou Planalto</td><td data-th="Observação">Ida e volta no mesmo dia</td></tr>
+            <tr><td>Angra dos Reis</td><td data-th="Tempo">50 min</td><td data-th="Codinome"><b>Litoral</b></td><td data-th="Observação">Pouso direto na propriedade</td></tr>
+            <tr><td>Brasília</td><td data-th="Tempo">1h20</td><td data-th="Codinome"><b>Ágil</b> ou Vanguarda</td><td data-th="Observação">Agendas institucionais</td></tr>
+            <tr><td>Trancoso</td><td data-th="Tempo">1h50</td><td data-th="Codinome"><b>Vanguarda</b></td><td data-th="Observação">Pista local para jatos</td></tr>
+            <tr><td>Punta del Este</td><td data-th="Tempo">2h30</td><td data-th="Codinome"><b>Vanguarda</b> ou Soberano</td><td data-th="Observação">Despacho internacional incluído</td></tr>
+            <tr><td>Miami</td><td data-th="Tempo">8h30</td><td data-th="Codinome"><b>Atlântico</b></td><td data-th="Observação">Sem escala técnica</td></tr>
+            <tr><td>Lisboa</td><td data-th="Tempo">10h</td><td data-th="Codinome"><b>Atlântico</b></td><td data-th="Observação">Cabine com área de descanso</td></tr>
           </tbody>
         </table>
       </div>
@@ -85,7 +167,7 @@
   <section class="feature">
     <img src="img/cockpit.jpg" alt="" loading="lazy" width="1600" height="1067">
     <div class="wrap rv">
-      <span class="label"><b>03</b> Padrão de segurança</span>
+      <span class="label"><b>04</b> Padrão de segurança</span>
       <h2>Nenhum voo sem <em>verificação.</em></h2>
       <p>Antes de cada contratação conferimos a certificação do operador, a documentação da aeronave, a experiência da tripulação e a apólice de seguro.</p>
       <div class="perks">
@@ -93,21 +175,6 @@
         <div><b>Tripulação dupla</b><span>Comandante e copiloto em todos os jatos.</span></div>
         <div><b>Manutenção em dia</b><span>Registros e inspeções conferidos antes do voo.</span></div>
         <div><b>Seguro RETA e casco</b><span>Apólices válidas para passageiros e aeronave.</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="cta">
-    <img src="img/jato-voo.jpg" alt="" loading="lazy" width="1600" height="1067">
-    <div class="wrap">
-      <div class="rv">
-        <span class="label"><b>EA</b> Disponibilidade</span>
-        <h2>Veja quais aeronaves estão livres <em>na sua data.</em></h2>
-        <p>Informe o trecho e enviamos as opções disponíveis, com fotos da cabine e valores fechados.</p>
-      </div>
-      <div class="cta__actions rv" style="--d:.1s">
-        <a class="btn" href="contato.html#cotacao">Solicitar cotação</a>
-        <a class="btn btn--light" data-wa-msg="Olá! Gostaria de saber a disponibilidade de aeronaves." href="#">WhatsApp 24 horas</a>
       </div>
     </div>
   </section>

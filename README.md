@@ -5,19 +5,23 @@ Site institucional de fretamento de jatos, turboélices e helicópteros, missõe
 ## Páginas
 - `index.html`: início (cotação rápida, soluções, frota, como funciona, aeronaves à venda, perguntas frequentes)
 - `servicos.html`: fretamento (jatos, helicópteros, turboélices, contas corporativas, trechos de oportunidade, missões especiais)
-- `frota.html`: categorias de aeronaves com filtro e referência de rotas
+- `frota.html`: **O Hangar**, seletor de aeronaves com codinomes, ficha técnica em barras e **briefing da missão** (calcula distância, tempo de voo e indica a aeronave)
 - `aeronaves.html`: aeronaves à venda (aba separada), busca sob encomenda, serviços para proprietários e formulário de avaliação
 - `sobre.html`: a empresa, princípios e conformidade
 - `contato.html`: canais e formulário completo de cotação
 
 ## Onde editar
 - **Contatos** (WhatsApp, telefone, e-mail, endereço): objeto `CONTATO` no início do `script.js`.
-- **Frota**: lista `FROTA` no `script.js`.
+- **Frota e codinomes**: lista `FROTA` no `script.js` (Atlântico, Soberano, Vanguarda, Ágil, Planalto, Sertão, Litoral, Metrópole).
+- **Cidades do briefing**: lista `CIDADES` no `script.js` (nome e coordenadas).
 - **Aeronaves à venda**: lista `VENDA` no `script.js` (modelo, ano, horas, assentos, local, foto, etiqueta).
-- **Cores e fontes**: variáveis no início do `style.css` (navy, marfim e champanhe; Cormorant Garamond + Inter Tight).
+- **Cores e fontes**: variáveis no início do `style.css` e no bloco *BLACK TIE* no fim dele (preto-grafite e dourado champanhe; Cormorant Garamond + Inter Tight).
 - Cabeçalho e rodapé são montados pelo `script.js`, então qualquer mudança vale para todas as páginas.
 
 Os formulários não guardam dados: montam a mensagem e abrem o WhatsApp.
+
+## Direção visual
+Tema *black tie*: a sensação de um agente de terno entrando no hangar para escolher a aeronave da missão. Entrada com tarjas de cinema, luz dourada, textura de filme e dossiês "confidenciais". Nenhuma marca, logo, número ou música de franquia de cinema é usada.
 
 ## Fotos
 Pasta `img/`, todas do Unsplash (licença de uso comercial livre). Trocar pelas fotos reais do cliente quando possível.

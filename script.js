@@ -17,14 +17,14 @@ const waLink = (msg) => `https://wa.me/${CONTATO.whatsapp}?text=${encodeURICompo
 
 // Frota disponível para fretamento (valores aproximados por categoria).
 const FROTA = [
-  { cat: 'jatos', tipo: 'Jato leve', nome: 'Light Jet', modelos: 'Phenom 100EV · Citation CJ3+ · Phenom 300E', pax: '5–8', alcance: '3.700', vel: '830', ideal: 'Ponte São Paulo–Rio, capitais do Sudeste e Sul, ida e volta no mesmo dia.', img: 'jato-escuro' },
-  { cat: 'jatos', tipo: 'Jato médio', nome: 'Midsize', modelos: 'Citation XLS+ · Learjet 75 · Hawker 800XP', pax: '7–9', alcance: '4.000', vel: '800', ideal: 'Nordeste a partir de São Paulo e capitais do Mercosul sem escala.', img: 'jato-frente' },
-  { cat: 'jatos', tipo: 'Super médio', nome: 'Super Midsize', modelos: 'Challenger 350 · Praetor 500 · Gulfstream G280', pax: '8–10', alcance: '6.000', vel: '850', ideal: 'O Brasil de ponta a ponta, América do Sul e Caribe.', img: 'jato-sol' },
-  { cat: 'jatos', tipo: 'Longo alcance', nome: 'Heavy Jet', modelos: 'Legacy 650 · Falcon 7X · Gulfstream G650 · Global 6500', pax: '12–16', alcance: '12.000', vel: '900', ideal: 'Voos intercontinentais para Estados Unidos, Europa e Oriente Médio.', img: 'jato-gulfstream' },
-  { cat: 'turbo', tipo: 'Turboélice monomotor', nome: 'Single Turboprop', modelos: 'Daher TBM 960 · Pilatus PC-12 NGX', pax: '5–8', alcance: '3.300', vel: '550', ideal: 'Fazendas, pistas curtas e cidades sem aviação comercial.', img: 'turbo-tbm' },
-  { cat: 'turbo', tipo: 'Turboélice bimotor', nome: 'Twin Turboprop', modelos: 'King Air C90 · King Air 250 · King Air 360', pax: '6–9', alcance: '2.800', vel: '560', ideal: 'Missões regionais e pistas não pavimentadas com dois motores.', img: 'turbo-kingair' },
-  { cat: 'heli', tipo: 'Helicóptero monoturbina', nome: 'Single Engine', modelos: 'Airbus H125 · Bell 407', pax: '4–6', alcance: '600', vel: '240', ideal: 'Traslados urbanos, helipontos em edifícios e litoral norte.', img: 'heli-bell' },
-  { cat: 'heli', tipo: 'Helicóptero biturbina', nome: 'Twin Engine', modelos: 'Leonardo AW109 · Airbus H135 · AW169', pax: '6–8', alcance: '800', vel: '280', ideal: 'Aeroporto–escritório, Angra dos Reis, Campos do Jordão e interior.', img: 'heli-por-do-sol' }
+  { cat: 'jatos', tipo: 'Jato leve', nome: 'Light Jet', codinome: 'Ágil', modelos: 'Phenom 100EV · Citation CJ3+ · Phenom 300E', pax: '5–8', alcance: '3.700', vel: '830', ideal: 'Ponte São Paulo–Rio, capitais do Sudeste e Sul, ida e volta no mesmo dia.', img: 'jato-escuro' },
+  { cat: 'jatos', tipo: 'Jato médio', nome: 'Midsize', codinome: 'Vanguarda', modelos: 'Citation XLS+ · Learjet 75 · Hawker 800XP', pax: '7–9', alcance: '4.000', vel: '800', ideal: 'Nordeste a partir de São Paulo e capitais do Mercosul sem escala.', img: 'jato-frente' },
+  { cat: 'jatos', tipo: 'Super médio', nome: 'Super Midsize', codinome: 'Soberano', modelos: 'Challenger 350 · Praetor 500 · Gulfstream G280', pax: '8–10', alcance: '6.000', vel: '850', ideal: 'O Brasil de ponta a ponta, América do Sul e Caribe.', img: 'jato-sol' },
+  { cat: 'jatos', tipo: 'Longo alcance', nome: 'Heavy Jet', codinome: 'Atlântico', modelos: 'Legacy 650 · Falcon 7X · Gulfstream G650 · Global 6500', pax: '12–16', alcance: '12.000', vel: '900', ideal: 'Voos intercontinentais para Estados Unidos, Europa e Oriente Médio.', img: 'jato-gulfstream' },
+  { cat: 'turbo', tipo: 'Turboélice monomotor', nome: 'Single Turboprop', codinome: 'Sertão', modelos: 'Daher TBM 960 · Pilatus PC-12 NGX', pax: '5–8', alcance: '3.300', vel: '550', ideal: 'Fazendas, pistas curtas e cidades sem aviação comercial.', img: 'turbo-tbm' },
+  { cat: 'turbo', tipo: 'Turboélice bimotor', nome: 'Twin Turboprop', codinome: 'Planalto', modelos: 'King Air C90 · King Air 250 · King Air 360', pax: '6–9', alcance: '2.800', vel: '560', ideal: 'Missões regionais e pistas não pavimentadas com dois motores.', img: 'turbo-kingair' },
+  { cat: 'heli', tipo: 'Helicóptero monoturbina', nome: 'Single Engine', codinome: 'Metrópole', modelos: 'Airbus H125 · Bell 407', pax: '4–6', alcance: '600', vel: '240', ideal: 'Traslados urbanos, helipontos em edifícios e litoral norte.', img: 'heli-bell' },
+  { cat: 'heli', tipo: 'Helicóptero biturbina', nome: 'Twin Engine', codinome: 'Litoral', modelos: 'Leonardo AW109 · Airbus H135 · AW169', pax: '6–8', alcance: '800', vel: '280', ideal: 'Aeroporto–escritório, Angra dos Reis, Campos do Jordão e interior.', img: 'heli-por-do-sol' }
 ];
 
 // Aeronaves à venda (anúncios ilustrativos até receber a carteira real do cliente).
@@ -46,7 +46,7 @@ const ICON = {
 
 const PAGINAS = [
   ['fretamento', 'servicos.html', 'Fretamento'],
-  ['frota', 'frota.html', 'Frota'],
+  ['frota', 'frota.html', 'O Hangar'],
   ['venda', 'aeronaves.html', 'Aeronaves à venda'],
   ['sobre', 'sobre.html', 'A empresa'],
   ['contato', 'contato.html', 'Contato']
@@ -96,6 +96,7 @@ function montarRodape() {
         <li><a href="servicos.html#missoes">Missões especiais</a></li>
       </ul></div>
       <div><h4>Proprietários</h4><ul>
+        <li><a href="frota.html">O Hangar</a></li>
         <li><a href="aeronaves.html">Aeronaves à venda</a></li>
         <li><a href="aeronaves.html#proprietarios">Compra e venda</a></li>
         <li><a href="aeronaves.html#proprietarios">Gestão de aeronaves</a></li>
@@ -128,7 +129,7 @@ function cardFrota(a, light) {
   return `<article class="ac${light ? ' ac--light' : ''} rv" data-cat="${a.cat}">
     <div class="ac__img"><img src="img/${a.img}.jpg" alt="${a.tipo}" loading="lazy" width="800" height="500"></div>
     <div class="ac__b">
-      <span class="ac__cat">${a.nome}</span>
+      <span class="ac__cat">Codinome ${a.codinome}</span>
       <h3>${a.tipo}</h3>
       <p class="ac__models">${a.modelos}</p>
       <ul class="specs">
@@ -137,7 +138,7 @@ function cardFrota(a, light) {
         <li><b>${a.vel}</b>km/h</li>
       </ul>
       <p class="ac__ideal"><b>Ideal para:</b> ${a.ideal}</p>
-      ${light ? `<a class="btn btn--line btn--sm" href="${waLink(`Olá! Gostaria de cotar um voo de ${a.tipo.toLowerCase()} (${a.modelos}).`)}" target="_blank" rel="noopener">Cotar esta categoria</a>` : ''}
+      ${light ? `<a class="btn btn--line btn--sm" href="${waLink(`Olá! Gostaria de cotar um voo de ${a.tipo.toLowerCase()} (${a.modelos}).`)}" target="_blank" rel="noopener">Cotar esta categoria</a>` : `<a class="link" style="margin-top:18px;align-self:flex-start" href="frota.html?codinome=${encodeURIComponent(a.codinome)}">Abrir dossiê ${ICON.arr}</a>`}
     </div>
   </article>`;
 }
@@ -279,6 +280,184 @@ function initWaLinks() {
   document.querySelectorAll('[data-email]').forEach(a => { a.href = `mailto:${CONTATO.email}`; a.textContent = CONTATO.email; });
 }
 
+// ---------- O Hangar: seletor de aeronave ----------
+const ORDEM_HANGAR = [3, 2, 1, 0, 5, 4, 7, 6]; // do maior ao menor: longo alcance primeiro
+const maxPax = (a) => parseInt(String(a.pax).split('–').pop(), 10);
+const num = (s) => parseInt(String(s).replace(/\./g, ''), 10);
+
+function initHangar() {
+  const root = document.getElementById('hangar');
+  if (!root) return;
+  const list = root.querySelector('.hg__list');
+  const stage = root.querySelector('.hg__stage');
+  const scan = root.querySelector('.hg__scan');
+  const itens = ORDEM_HANGAR.map(i => FROTA[i]);
+  list.innerHTML = itens.map((a, i) => `<li><button type="button" role="tab" aria-selected="false" data-i="${i}"><i>${String(i + 1).padStart(2, '0')}</i><b>${a.codinome}</b><span>${a.tipo}</span></button></li>`).join('');
+  const btns = [...list.querySelectorAll('button')];
+  let atual = -1;
+  const $ = (sel) => root.querySelector(sel);
+  const show = (i, first) => {
+    if (i === atual) return;
+    i = (i + itens.length) % itens.length;
+    atual = i;
+    const a = itens[i];
+    btns.forEach((b, k) => b.setAttribute('aria-selected', String(k === i)));
+    const old = stage.querySelector('img');
+    const img = new Image();
+    img.src = `img/${a.img}.jpg`; img.alt = `${a.tipo}: ${a.modelos}`;
+    img.className = 'out';
+    stage.prepend(img);
+    const reveal = () => requestAnimationFrame(() => requestAnimationFrame(() => {
+      img.classList.remove('out');
+      if (old) { old.classList.add('out'); setTimeout(() => old.remove(), 800); }
+    }));
+    if (img.complete) reveal(); else { img.onload = reveal; img.onerror = reveal; }
+    if (!first) { scan.classList.remove('go'); void scan.offsetWidth; scan.classList.add('go'); }
+    $('[data-h="num"]').textContent = `Dossiê nº ${String(i + 1).padStart(2, '0')} · ${a.nome}`;
+    $('[data-h="cod"]').textContent = a.codinome;
+    $('[data-h="tipo"]').textContent = `Codinome · ${a.tipo}`;
+    $('[data-h="ideal"]').textContent = a.ideal;
+    $('[data-h="models"]').textContent = a.modelos;
+    const set = (k, val, max, unit) => {
+      $(`[data-m="${k}"] b`).innerHTML = `${val}<small>${unit}</small>`;
+      $(`[data-m="${k}"] i`).style.width = Math.min(100, Math.round(num(String(val).split('–').pop()) / max * 100)) + '%';
+    };
+    set('alcance', a.alcance, 12000, 'km');
+    set('vel', a.vel, 900, 'km/h');
+    set('pax', a.pax, 16, 'lugares');
+    const sel = $('[data-h="selecionar"]');
+    sel.dataset.i = i;
+    if (!first && innerWidth < 760) btns[i].scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
+  };
+  btns.forEach(b => b.addEventListener('click', () => show(+b.dataset.i)));
+  root.querySelector('[data-h="prev"]').addEventListener('click', () => show(atual - 1));
+  root.querySelector('[data-h="next"]').addEventListener('click', () => show(atual + 1));
+  root.addEventListener('keydown', e => {
+    if (e.key === 'ArrowDown' || e.key === 'ArrowRight') { e.preventDefault(); show(atual + 1); btns[atual].focus(); }
+    if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') { e.preventDefault(); show(atual - 1); btns[atual].focus(); }
+  });
+  // arrastar no palco (celular)
+  let x0 = null;
+  stage.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; }, { passive: true });
+  stage.addEventListener('touchend', e => {
+    if (x0 === null) return;
+    const dx = e.changedTouches[0].clientX - x0; x0 = null;
+    if (Math.abs(dx) > 50) show(atual + (dx < 0 ? 1 : -1));
+  });
+  // "Selecionar para a missão" leva a aeronave para o briefing
+  $('[data-h="selecionar"]').addEventListener('click', () => {
+    const a = itens[atual];
+    document.dispatchEvent(new CustomEvent('aeronave', { detail: a }));
+    const brief = document.getElementById('briefing');
+    if (brief) brief.scrollIntoView({ behavior: 'smooth' });
+  });
+  const pedido = new URLSearchParams(location.search).get('codinome');
+  const ini = pedido ? Math.max(0, itens.findIndex(a => a.codinome.toLowerCase() === pedido.toLowerCase())) : 0;
+  show(ini, true);
+}
+
+// ---------- Briefing da missão: recomenda a aeronave pela distância ----------
+const CIDADES = {
+  'São Paulo': [-23.63, -46.66], 'Rio de Janeiro': [-22.91, -43.16], 'Belo Horizonte': [-19.85, -43.95], 'Brasília': [-15.87, -47.92],
+  'Curitiba': [-25.53, -49.17], 'Florianópolis': [-27.67, -48.55], 'Porto Alegre': [-29.99, -51.17], 'Salvador': [-12.91, -38.33],
+  'Recife': [-8.13, -34.92], 'Fortaleza': [-3.78, -38.53], 'Manaus': [-3.04, -60.05], 'Goiânia': [-16.63, -49.22],
+  'Ribeirão Preto': [-21.13, -47.78], 'Campinas': [-23.01, -47.13], 'Angra dos Reis': [-23.0, -44.32], 'Campos do Jordão': [-22.74, -45.59],
+  'Búzios': [-22.77, -41.96], 'Trancoso': [-16.59, -39.1], 'Fernando de Noronha': [-3.85, -32.42], 'Punta del Este': [-34.85, -55.09],
+  'Buenos Aires': [-34.56, -58.42], 'Santiago': [-33.39, -70.79], 'Lima': [-12.02, -77.11], 'Bogotá': [4.7, -74.15],
+  'Miami': [25.79, -80.29], 'Orlando': [28.43, -81.31], 'Nova York': [40.64, -73.78], 'Lisboa': [38.77, -9.13],
+  'Paris': [49.01, 2.55], 'Londres': [51.28, -0.78], 'Genebra': [46.24, 6.11], 'Dubai': [25.25, 55.36]
+};
+const norm = (s) => String(s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().trim();
+const acharCidade = (s) => { const n = norm(s); return Object.keys(CIDADES).find(c => norm(c) === n); };
+function distKm(a, b) {
+  const R = 6371, r = Math.PI / 180;
+  const [la1, lo1] = CIDADES[a], [la2, lo2] = CIDADES[b];
+  const h = Math.sin((la2 - la1) * r / 2) ** 2 + Math.cos(la1 * r) * Math.cos(la2 * r) * Math.sin((lo2 - lo1) * r / 2) ** 2;
+  return 2 * R * Math.asin(Math.sqrt(h));
+}
+const fmtH = (h) => { const m = Math.round(h * 60 / 5) * 5; return `${Math.floor(m / 60)}h${String(m % 60).padStart(2, '0')}`; };
+// do menor ao maior: helicópteros, turboélices, jatos
+const ESCADA = [6, 7, 4, 5, 0, 1, 2, 3].map(i => FROTA[i]);
+
+function recomendar(dist, pax) {
+  const rota = dist * 1.08;
+  const cabe = ESCADA.filter(a => maxPax(a) >= pax);
+  const ok = cabe.filter(a => {
+    if (a.cat === 'heli') return rota <= 350;
+    if (a.cat === 'turbo') return rota <= Math.min(1400, num(a.alcance) * .85);
+    return num(a.alcance) * .9 >= rota;
+  });
+  let escolha = ok[0], escala = false;
+  if (!escolha) { escolha = cabe[cabe.length - 1] || ESCADA[ESCADA.length - 1]; escala = true; }
+  const idx = ok.indexOf(escolha);
+  const alt = ok.slice(idx + 1).find(a => a.cat === 'jatos' && a !== escolha);
+  const horas = rota / num(escolha.vel) + .3 + (escala ? 1.2 : 0);
+  return { escolha, alt, horas, escala };
+}
+
+function initBriefing() {
+  const box = document.getElementById('briefing');
+  if (!box) return;
+  const form = box.querySelector('form');
+  const out = box.querySelector('.brief__out');
+  const dl = document.getElementById('cidades');
+  if (dl) dl.innerHTML = Object.keys(CIDADES).map(c => `<option value="${c}">`).join('');
+  const fixo = form.querySelector('[name="aeronave"]');
+  const chip = box.querySelector('[data-b="chip"]');
+  document.addEventListener('aeronave', e => {
+    fixo.value = `${e.detail.tipo} (codinome ${e.detail.codinome})`;
+    chip.hidden = false;
+    chip.querySelector('b').textContent = e.detail.codinome;
+    calcular();
+  });
+  chip.querySelector('button').addEventListener('click', () => { fixo.value = ''; chip.hidden = true; calcular(); });
+  const $ = (s) => out.querySelector(s);
+  function calcular() {
+    const o = acharCidade(form.origem.value), d = acharCidade(form.destino.value);
+    const pax = parseInt(form.pax.value, 10) || 1;
+    if (!o || !d || o === d) { out.classList.remove('has'); return null; }
+    const dist = distKm(o, d);
+    const r = recomendar(dist, pax);
+    const escolhida = fixo.value ? ESCADA.find(a => fixo.value.includes(a.codinome)) : null;
+    const a = escolhida || r.escolha;
+    const horas = escolhida ? (dist * 1.08 / num(a.vel) + .3) : r.horas;
+    $('.route').textContent = `${o} → ${d}`;
+    $('[data-b="titulo"]').textContent = escolhida ? `Sua escolha: ${a.codinome}` : `Recomendado: ${a.codinome}`;
+    $('[data-b="tipo"]').textContent = `${a.tipo} · ${a.modelos}`;
+    $('[data-b="dist"]').textContent = Math.round(dist).toLocaleString('pt-BR') + ' km';
+    $('[data-b="tempo"]').textContent = fmtH(horas);
+    $('[data-b="lug"]').textContent = a.pax;
+    let alt = '';
+    if (escolhida && num(a.alcance) * .9 < dist * 1.08) alt = `Atenção: para este trecho o ${a.codinome} precisa de escala técnica. Sem escala: <b>${r.escolha.codinome}</b> (${r.escolha.tipo.toLowerCase()}).`;
+    else if (!escolhida && r.escala) alt = 'Trecho acima do alcance sem escala: previsto um pouso técnico para reabastecimento.';
+    else if (!escolhida && r.alt) alt = `Mais espaço a bordo: <b>${r.alt.codinome}</b> (${r.alt.tipo.toLowerCase()}, ${r.alt.pax} lugares).`;
+    $('[data-b="alt"]').innerHTML = alt;
+    const im = out.querySelector('img');
+    if (!im.src.endsWith(`${a.img}.jpg`)) im.src = `img/${a.img}.jpg`;
+    out.classList.add('has');
+    return { o, d, a, horas, dist };
+  }
+  form.addEventListener('input', calcular);
+  form.addEventListener('change', calcular);
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    if (!form.reportValidity()) return;
+    const r = calcular();
+    const data = form.data.value ? form.data.value.split('-').reverse().join('/') : 'a combinar';
+    const linhas = [
+      'Olá! Briefing de missão enviado pelo Hangar:',
+      `*Rota:* ${form.origem.value} → ${form.destino.value}`,
+      `*Data:* ${data}${form.hora.value ? ' às ' + form.hora.value : ''}`,
+      `*Passageiros:* ${form.pax.value}`,
+      r ? `*Aeronave:* ${r.a.tipo} (codinome ${r.a.codinome})` : '',
+      r ? `*Estimativa:* ${Math.round(r.dist).toLocaleString('pt-BR')} km · ${fmtH(r.horas)} de voo` : '',
+      form.obs.value.trim() ? `*Observações:* ${form.obs.value.trim()}` : ''
+    ].filter(Boolean);
+    window.open(waLink(linhas.join('\n')), '_blank', 'noopener');
+  });
+  calcular();
+}
+
 montarCabecalho();
 montarRodape();
 renderListas();
@@ -286,5 +465,7 @@ initFiltros();
 initMenu();
 initTopbar();
 initForms();
+initHangar();
+initBriefing();
 initWaLinks();
 initReveal();
