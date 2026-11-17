@@ -17,14 +17,14 @@ const waLink = (msg) => `https://wa.me/${CONTATO.whatsapp}?text=${encodeURICompo
 
 // Frota disponível para fretamento (valores aproximados por categoria).
 const FROTA = [
-  { cat: 'jatos', tipo: 'Jato leve', nome: 'Light Jet', codinome: 'Ágil', modelos: 'Phenom 100EV · Citation CJ3+ · Phenom 300E', pax: '5–8', alcance: '3.700', vel: '830', ideal: 'Ponte São Paulo–Rio, capitais do Sudeste e Sul, ida e volta no mesmo dia.', img: 'jato-escuro' },
-  { cat: 'jatos', tipo: 'Jato médio', nome: 'Midsize', codinome: 'Vanguarda', modelos: 'Citation XLS+ · Learjet 75 · Hawker 800XP', pax: '7–9', alcance: '4.000', vel: '800', ideal: 'Nordeste a partir de São Paulo e capitais do Mercosul sem escala.', img: 'jato-frente' },
-  { cat: 'jatos', tipo: 'Super médio', nome: 'Super Midsize', codinome: 'Soberano', modelos: 'Challenger 350 · Praetor 500 · Gulfstream G280', pax: '8–10', alcance: '6.000', vel: '850', ideal: 'O Brasil de ponta a ponta, América do Sul e Caribe.', img: 'jato-sol' },
-  { cat: 'jatos', tipo: 'Longo alcance', nome: 'Heavy Jet', codinome: 'Atlântico', modelos: 'Legacy 650 · Falcon 7X · Gulfstream G650 · Global 6500', pax: '12–16', alcance: '12.000', vel: '900', ideal: 'Voos intercontinentais para Estados Unidos, Europa e Oriente Médio.', img: 'jato-gulfstream' },
-  { cat: 'turbo', tipo: 'Turboélice monomotor', nome: 'Single Turboprop', codinome: 'Sertão', modelos: 'Daher TBM 960 · Pilatus PC-12 NGX', pax: '5–8', alcance: '3.300', vel: '550', ideal: 'Fazendas, pistas curtas e cidades sem aviação comercial.', img: 'turbo-tbm' },
-  { cat: 'turbo', tipo: 'Turboélice bimotor', nome: 'Twin Turboprop', codinome: 'Planalto', modelos: 'King Air C90 · King Air 250 · King Air 360', pax: '6–9', alcance: '2.800', vel: '560', ideal: 'Missões regionais e pistas não pavimentadas com dois motores.', img: 'turbo-kingair' },
-  { cat: 'heli', tipo: 'Helicóptero monoturbina', nome: 'Single Engine', codinome: 'Metrópole', modelos: 'Airbus H125 · Bell 407', pax: '4–6', alcance: '600', vel: '240', ideal: 'Traslados urbanos, helipontos em edifícios e litoral norte.', img: 'heli-bell' },
-  { cat: 'heli', tipo: 'Helicóptero biturbina', nome: 'Twin Engine', codinome: 'Litoral', modelos: 'Leonardo AW109 · Airbus H135 · AW169', pax: '6–8', alcance: '800', vel: '280', ideal: 'Aeroporto–escritório, Angra dos Reis, Campos do Jordão e interior.', img: 'heli-por-do-sol' }
+  { cat: 'jatos', tipo: 'Jato leve', nome: 'Light Jet', codinome: 'Ágil', modelos: 'Phenom 100EV · Citation CJ3+ · Phenom 300E', pax: '5–8', alcance: '3.700', vel: '830', ideal: 'Ponte Rio–São Paulo e capitais do Sul e Sudeste.', img: 'jato-escuro' },
+  { cat: 'jatos', tipo: 'Jato médio', nome: 'Midsize', codinome: 'Vanguarda', modelos: 'Citation XLS+ · Learjet 75 · Hawker 800XP', pax: '7–9', alcance: '4.000', vel: '800', ideal: 'Nordeste e Mercosul sem escala.', img: 'jato-frente' },
+  { cat: 'jatos', tipo: 'Super médio', nome: 'Super Midsize', codinome: 'Soberano', modelos: 'Challenger 350 · Praetor 500 · Gulfstream G280', pax: '8–10', alcance: '6.000', vel: '850', ideal: 'Brasil de ponta a ponta e Caribe.', img: 'jato-sol' },
+  { cat: 'jatos', tipo: 'Longo alcance', nome: 'Heavy Jet', codinome: 'Atlântico', modelos: 'Legacy 650 · Falcon 7X · Gulfstream G650 · Global 6500', pax: '12–16', alcance: '12.000', vel: '900', ideal: 'Estados Unidos, Europa e Oriente Médio.', img: 'jato-gulfstream' },
+  { cat: 'turbo', tipo: 'Turboélice monomotor', nome: 'Single Turboprop', codinome: 'Sertão', modelos: 'Daher TBM 960 · Pilatus PC-12 NGX', pax: '5–8', alcance: '3.300', vel: '550', ideal: 'Fazendas e pistas curtas.', img: 'turbo-tbm' },
+  { cat: 'turbo', tipo: 'Turboélice bimotor', nome: 'Twin Turboprop', codinome: 'Planalto', modelos: 'King Air C90 · King Air 250 · King Air 360', pax: '6–9', alcance: '2.800', vel: '560', ideal: 'Missões regionais, com dois motores.', img: 'turbo-kingair' },
+  { cat: 'heli', tipo: 'Helicóptero monoturbina', nome: 'Single Engine', codinome: 'Metrópole', modelos: 'Airbus H125 · Bell 407', pax: '4–6', alcance: '600', vel: '240', ideal: 'Traslados urbanos e helipontos.', img: 'heli-bell' },
+  { cat: 'heli', tipo: 'Helicóptero biturbina', nome: 'Twin Engine', codinome: 'Litoral', modelos: 'Leonardo AW109 · Airbus H135 · AW169', pax: '6–8', alcance: '800', vel: '280', ideal: 'Angra, Campos do Jordão e interior.', img: 'heli-por-do-sol' }
 ];
 
 // Aeronaves à venda (anúncios ilustrativos até receber a carteira real do cliente).
