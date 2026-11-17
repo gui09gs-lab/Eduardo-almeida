@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aeronaves à venda · Eduardo Almeida Aviação Executiva</title>
+<meta name="description" content="Jatos, turboélices e helicópteros à venda, intermediação de compra e venda, gestão e agregação de aeronaves.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0b121c">
+<script>document.documentElement.classList.add("js")</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter+Tight:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script src="preview.js"></script>
+</head>
+<body data-page="venda">
+
+<main id="conteudo">
+  <section class="page-hero">
+    <img src="img/hangar-pb.jpg" alt="" width="2000" height="1333" fetchpriority="high" style="object-position:50% 40%">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Você está em"><a href="./">Início</a><span>/</span><span>Aeronaves à venda</span></nav>
+      <span class="label"><b>EA</b> Compra e venda</span>
+      <h1>Aeronaves selecionadas, <em>negociação reservada.</em></h1>
+      <p class="lead">Uma carteira curta, verificada e apresentada apenas a compradores qualificados. Do primeiro contato à entrega técnica, com sigilo em todas as etapas.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="head rv">
+        <div>
+          <span class="label"><b>01</b> Carteira atual</span>
+          <h2>Disponíveis para <em>negociação.</em></h2>
+        </div>
+        <p>Cada anúncio tem dossiê técnico completo: histórico de manutenção, status de motores e inspeções, documentação e fotos detalhadas. Solicite o dossiê da aeronave que interessa.</p>
+      </div>
+      <div class="tabs tabs--light rv" role="tablist" aria-label="Filtrar aeronaves" data-filter="#venda-lista" data-count>
+        <button type="button" role="tab" data-cat="todas" aria-selected="true">Todas</button>
+        <button type="button" role="tab" data-cat="jatos" aria-selected="false">Jatos</button>
+        <button type="button" role="tab" data-cat="turbo" aria-selected="false">Turboélices</button>
+        <button type="button" role="tab" data-cat="heli" aria-selected="false">Helicópteros</button>
+      </div>
+      <div class="listings" id="venda-lista" data-venda></div>
+      <p class="disclaimer">Anúncios ilustrativos. Valores sob consulta e informações sujeitas a confirmação. Algumas aeronaves são negociadas fora do mercado aberto e não aparecem nesta página.</p>
+    </div>
+  </section>
+
+  <section class="section section--paper">
+    <div class="wrap split">
+      <div class="split__body rv">
+        <span class="label"><b>02</b> Busca sob encomenda</span>
+        <h2>Procurando um modelo que <em>não está aqui?</em></h2>
+        <p class="lead">A maior parte das negociações acontece fora dos anúncios.</p>
+        <p>Informe o modelo, a faixa de ano, o perfil de uso e o orçamento. Pesquisamos o mercado nacional e internacional, avaliamos as opções e apresentamos apenas as aeronaves que passam na nossa triagem técnica.</p>
+        <a class="btn btn--navy" data-wa-msg="Olá! Estou procurando uma aeronave para comprar. Modelo de interesse:" href="#">Encomendar uma busca</a>
+      </div>
+      <figure class="split__media split__media--wide rv" style="margin:0;--d:.1s">
+        <img src="img/jato-neve.jpg" alt="Jato trimotor estacionado com montanhas nevadas ao fundo" loading="lazy" width="1200" height="800">
+        <figcaption>Busca internacional</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" id="proprietarios">
+    <div class="wrap">
+      <div class="head rv">
+        <div>
+          <span class="label"><b>03</b> Para proprietários</span>
+          <h2>Sua aeronave em <em>boas mãos.</em></h2>
+        </div>
+        <p>Comprar, vender ou manter uma aeronave exige especialistas. Cuidamos da parte técnica, jurídica e comercial para que o patrimônio renda e se valorize.</p>
+      </div>
+      <div class="owners">
+        <div class="owner rv">
+          <svg viewBox="0 0 36 36" aria-hidden="true"><path d="M4 22h28M8 22l4-10h12l4 10M12 12l2-5h8l2 5"/><circle cx="11" cy="27" r="3"/><circle cx="25" cy="27" r="3"/></svg>
+          <h3>Compra e venda</h3>
+          <p>Representação do comprador ou do vendedor, do anúncio ao fechamento.</p>
+          <ul class="ticks">
+            <li>Avaliação de mercado e precificação</li>
+            <li>Inspeção pré-compra em centro homologado</li>
+            <li>Due diligence documental e registro no RAB</li>
+            <li>Conta garantia (escrow) e entrega técnica</li>
+          </ul>
+        </div>
+        <div class="owner rv" style="--d:.08s">
+          <svg viewBox="0 0 36 36" aria-hidden="true"><rect x="5" y="6" width="26" height="24" rx="1"/><path d="M5 13h26M11 19h6M11 24h10M24 19h2M24 24h2"/></svg>
+          <h3>Gestão de aeronaves</h3>
+          <p>Administração completa para o proprietário apenas voar.</p>
+          <ul class="ticks">
+            <li>Planejamento de manutenção e inspeções</li>
+            <li>Contratação de tripulação e hangaragem</li>
+            <li>Seguros, documentação e conformidade</li>
+            <li>Relatório mensal de custos e horas</li>
+          </ul>
+        </div>
+        <div class="owner rv" style="--d:.16s">
+          <svg viewBox="0 0 36 36" aria-hidden="true"><path d="M5 27 14 18l6 5 11-12"/><path d="M24 11h7v7"/></svg>
+          <h3>Agregação</h3>
+          <p>A aeronave gera receita com fretamento quando você não está voando.</p>
+          <ul class="ticks">
+            <li>Agregação a operador certificado RBAC 135</li>
+            <li>Agenda do proprietário sempre prioritária</li>
+            <li>Receita para abater custos fixos</li>
+            <li>Prestação de contas transparente</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--stone" id="vender">
+    <div class="wrap contact">
+      <div class="rv">
+        <span class="label"><b>04</b> Vender minha aeronave</span>
+        <h2 style="margin-top:18px">Uma avaliação <em>sem exposição.</em></h2>
+        <p style="margin-top:22px;color:var(--mute)">Sua aeronave não é divulgada sem autorização. Apresentamos a oportunidade, primeiro, à nossa base de compradores qualificados.</p>
+        <ul class="ticks" style="margin-top:32px">
+          <li>Avaliação de mercado em até 72 horas</li>
+          <li>Acordo de confidencialidade desde o primeiro contato</li>
+          <li>Material de venda profissional: fotos, vídeo e dossiê</li>
+        </ul>
+      </div>
+      <form class="form-card rv" data-wa="Olá! Quero avaliar a venda da minha aeronave:" style="--d:.1s">
+        <span class="label">Avaliação confidencial</span>
+        <h2>Conte sobre a aeronave</h2>
+        <p>Retornamos com uma avaliação preliminar e os próximos passos.</p>
+        <div class="fields">
+          <label class="field"><span>Fabricante e modelo</span><input name="modelo" data-label="Modelo" placeholder="Ex.: Embraer Phenom 300" required></label>
+          <label class="field"><span>Ano de fabricação</span><input name="ano" data-label="Ano" inputmode="numeric" placeholder="Ex.: 2016"></label>
+          <label class="field"><span>Horas totais</span><input name="horas" data-label="Horas" inputmode="numeric" placeholder="Ex.: 2.300"></label>
+          <label class="field"><span>Base atual</span><input name="base" data-label="Base" placeholder="Cidade ou aeroporto"></label>
+          <label class="field"><span>Nome</span><input name="nome" data-label="Nome" autocomplete="name" required></label>
+          <label class="field"><span>Telefone</span><input name="telefone" data-label="Telefone" type="tel" autocomplete="tel" required></label>
+          <label class="field full"><span>Observações</span><textarea name="obs" data-label="Observações" placeholder="Status de motores, configuração da cabine, aviônicos..."></textarea></label>
+        </div>
+        <button class="btn btn--navy btn--block" type="submit" style="margin-top:22px">Solicitar avaliação</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Frota · Eduardo Almeida Aviação Executiva</title>
+<meta name="description" content="Jatos leves, médios, super médios e de longo alcance, turboélices e helicópteros executivos para fretamento.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0b121c">
+<script>document.documentElement.classList.add("js")</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter+Tight:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<style>
+  .routes { width: 100%; border-collapse: collapse; font-size: .95rem; }
+  .routes th, .routes td { text-align: left; padding: 18px 16px 18px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .routes th { font-size: .66rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--mute); }
+  .routes td:first-child { font-family: var(--serif); font-size: 1.35rem; font-weight: 600; color: var(--navy); white-space: nowrap; }
+  .routes td b { font-weight: 500; color: var(--navy); }
+  .table-wrap { overflow-x: auto; border-top: 1px solid var(--line); }
+  @media (max-width: 720px) {
+    .routes thead { display: none; }
+    .routes tr { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 16px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+    .routes td { border: 0; padding: 0; }
+    .routes td:first-child { grid-column: 1 / -1; }
+    .routes td::before { content: attr(data-th); display: block; font-size: .62rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--mute); }
+    .routes td:first-child::before { display: none; }
+  }
+</style>
+<script src="preview.js"></script>
+</head>
+<body data-page="frota">
+
+<main id="conteudo">
+  <section class="page-hero">
+    <img src="img/jato-frente.jpg" alt="" width="1400" height="933" fetchpriority="high">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Você está em"><a href="./">Início</a><span>/</span><span>Frota</span></nav>
+      <span class="label"><b>EA</b> Frota</span>
+      <h1>Oito categorias, <em>uma só curadoria.</em></h1>
+      <p class="lead">Selecionamos a aeronave pela missão, não pelo estoque. Compare as categorias e fale com a nossa equipe para receber os modelos disponíveis na data do seu voo.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="tabs tabs--light rv" role="tablist" aria-label="Filtrar frota" data-filter="#frota-lista" data-count>
+        <button type="button" role="tab" data-cat="todas" aria-selected="true">Todas</button>
+        <button type="button" role="tab" data-cat="jatos" aria-selected="false">Jatos executivos</button>
+        <button type="button" role="tab" data-cat="turbo" aria-selected="false">Turboélices</button>
+        <button type="button" role="tab" data-cat="heli" aria-selected="false">Helicópteros</button>
+      </div>
+      <div class="fleet" id="frota-lista" data-frota="light"></div>
+      <p class="disclaimer">Capacidades, alcance e velocidade de cruzeiro aproximados. Variam conforme o modelo, a configuração e as condições do voo.</p>
+    </div>
+  </section>
+
+  <section class="section section--paper">
+    <div class="wrap">
+      <div class="head rv">
+        <div>
+          <span class="label"><b>02</b> Referência de rotas</span>
+          <h2>Qual categoria <em>para o seu trecho?</em></h2>
+        </div>
+        <p>Exemplos a partir de São Paulo para ajudar na escolha. O tempo de voo é aproximado e depende de vento, rota e aeronave.</p>
+      </div>
+      <div class="table-wrap rv">
+        <table class="routes">
+          <thead><tr><th>Destino</th><th>Tempo aproximado</th><th>Categoria indicada</th><th>Observação</th></tr></thead>
+          <tbody>
+            <tr><td>Rio de Janeiro</td><td data-th="Tempo">45 min</td><td data-th="Categoria"><b>Jato leve</b> ou turboélice</td><td data-th="Observação">Ida e volta no mesmo dia</td></tr>
+            <tr><td>Angra dos Reis</td><td data-th="Tempo">50 min</td><td data-th="Categoria"><b>Helicóptero biturbina</b></td><td data-th="Observação">Pouso direto na propriedade</td></tr>
+            <tr><td>Brasília</td><td data-th="Tempo">1h20</td><td data-th="Categoria"><b>Jato leve</b> ou médio</td><td data-th="Observação">Agendas institucionais</td></tr>
+            <tr><td>Trancoso</td><td data-th="Tempo">1h50</td><td data-th="Categoria"><b>Jato médio</b></td><td data-th="Observação">Pista local para jatos</td></tr>
+            <tr><td>Punta del Este</td><td data-th="Tempo">2h30</td><td data-th="Categoria"><b>Jato médio</b> ou super médio</td><td data-th="Observação">Despacho internacional incluído</td></tr>
+            <tr><td>Miami</td><td data-th="Tempo">8h30</td><td data-th="Categoria"><b>Longo alcance</b></td><td data-th="Observação">Sem escala técnica</td></tr>
+            <tr><td>Lisboa</td><td data-th="Tempo">10h</td><td data-th="Categoria"><b>Longo alcance</b></td><td data-th="Observação">Cabine com área de descanso</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="feature">
+    <img src="img/cockpit.jpg" alt="" loading="lazy" width="1600" height="1067">
+    <div class="wrap rv">
+      <span class="label"><b>03</b> Padrão de segurança</span>
+      <h2>Nenhum voo sem <em>verificação.</em></h2>
+      <p>Antes de cada contratação conferimos a certificação do operador, a documentação da aeronave, a experiência da tripulação e a apólice de seguro.</p>
+      <div class="perks">
+        <div><b>Operador RBAC 135</b><span>Somente táxi aéreo certificado pela ANAC.</span></div>
+        <div><b>Tripulação dupla</b><span>Comandante e copiloto em todos os jatos.</span></div>
+        <div><b>Manutenção em dia</b><span>Registros e inspeções conferidos antes do voo.</span></div>
+        <div><b>Seguro RETA e casco</b><span>Apólices válidas para passageiros e aeronave.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <img src="img/jato-voo.jpg" alt="" loading="lazy" width="1600" height="1067">
+    <div class="wrap">
+      <div class="rv">
+        <span class="label"><b>EA</b> Disponibilidade</span>
+        <h2>Veja quais aeronaves estão livres <em>na sua data.</em></h2>
+        <p>Informe o trecho e enviamos as opções disponíveis, com fotos da cabine e valores fechados.</p>
+      </div>
+      <div class="cta__actions rv" style="--d:.1s">
+        <a class="btn" href="contato.html#cotacao">Solicitar cotação</a>
+        <a class="btn btn--light" data-wa-msg="Olá! Gostaria de saber a disponibilidade de aeronaves." href="#">WhatsApp 24 horas</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

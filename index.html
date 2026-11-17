@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Eduardo Almeida · Aviação Executiva</title>
+<meta name="description" content="Fretamento de jatos executivos, turboélices e helicópteros, missões especiais e compra e venda de aeronaves. Atendimento pessoal 24 horas.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0b121c">
+<script>document.documentElement.classList.add("js")</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter+Tight:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script src="preview.js"></script>
+</head>
+<body data-page="home">
+
+<main id="conteudo">
+
+  <!-- HERO -->
+  <section class="hero" aria-label="Apresentação">
+    <div class="hero__bg"><img src="img/hero-jato.jpg" alt="" width="2200" height="1467" fetchpriority="high"></div>
+    <div class="hero__wrap">
+      <div class="wrap hero__grid">
+        <div>
+          <span class="label"><b>EA</b> Aviação executiva sob demanda</span>
+          <h1>O seu tempo, <em>no seu horário.</em></h1>
+          <p class="hero__lead lead">Jatos executivos, turboélices e helicópteros para agendas que não podem esperar. Um único ponto de contato cuida de cada detalhe, da cotação ao desembarque.</p>
+          <div class="hero__actions">
+            <a class="btn" href="#frota">Conhecer a frota <svg class="arr" viewBox="0 0 22 10" aria-hidden="true"><path d="M0 5h20M16 1l4 4-4 4"/></svg></a>
+            <a class="btn btn--light" href="aeronaves.html">Aeronaves à venda</a>
+          </div>
+        </div>
+
+        <form class="quote" data-wa="Olá! Gostaria de uma cotação de voo:" data-trip id="cotacao-rapida">
+          <div class="quote__t"><h2>Cotação de voo</h2><span>Resposta em minutos</span></div>
+          <div class="seg" style="--n:3" role="radiogroup" aria-label="Tipo de aeronave">
+            <label><input type="radio" name="aeronave" value="Jato executivo" data-label="Aeronave" checked><span>Jato</span></label>
+            <label><input type="radio" name="aeronave" value="Turboélice" data-label="Aeronave"><span>Turboélice</span></label>
+            <label><input type="radio" name="aeronave" value="Helicóptero" data-label="Aeronave"><span>Helicóptero</span></label>
+          </div>
+          <div class="seg" role="radiogroup" aria-label="Trecho">
+            <label><input type="radio" name="trecho" value="Somente ida" data-label="Trecho" checked><span>Somente ida</span></label>
+            <label><input type="radio" name="trecho" value="Ida e volta" data-label="Trecho"><span>Ida e volta</span></label>
+          </div>
+          <div class="fields">
+            <label class="field"><span>Origem</span><input name="origem" data-label="Origem" placeholder="Cidade ou aeroporto" required autocomplete="off"></label>
+            <label class="field"><span>Destino</span><input name="destino" data-label="Destino" placeholder="Cidade ou aeroporto" required autocomplete="off"></label>
+            <label class="field"><span>Data de ida</span><input type="date" name="ida" data-label="Ida" required></label>
+            <label class="field" data-volta><span>Data de volta</span><input type="date" name="volta" data-label="Volta"></label>
+            <label class="field"><span>Passageiros</span>
+              <select name="pax" data-label="Passageiros">
+                <option>1 a 4</option><option>5 a 8</option><option>9 a 12</option><option>13 ou mais</option>
+              </select>
+            </label>
+          </div>
+          <button class="btn btn--block" type="submit">Solicitar cotação <svg class="arr" viewBox="0 0 22 10" aria-hidden="true"><path d="M0 5h20M16 1l4 4-4 4"/></svg></button>
+          <p class="quote__note">Sem compromisso. Atendimento 24 horas, todos os dias.</p>
+        </form>
+      </div>
+
+      <div class="hero__foot">
+        <div class="wrap">
+          <ul>
+            <li><svg viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="11"/><path d="M13 7v6l4 3"/></svg>Plantão 24 horas, 7 dias por semana</li>
+            <li><svg viewBox="0 0 26 26" aria-hidden="true"><path d="M13 2 4 6v6c0 6 4 10 9 12 5-2 9-6 9-12V6z"/><path d="m9 13 3 3 5-6"/></svg>Somente operadores homologados pela ANAC</li>
+            <li><svg viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="11"/><path d="M2 13h22M13 2c3 3 4.5 7 4.5 11S16 21 13 24M13 2c-3 3-4.5 7-4.5 11S10 21 13 24"/></svg>Destinos no Brasil e no exterior</li>
+            <li><svg viewBox="0 0 26 26" aria-hidden="true"><rect x="5" y="3" width="16" height="20" rx="1"/><path d="M9 9h8M9 13h8M9 17h5"/></svg>Proposta transparente e sem compromisso</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- A EMPRESA -->
+  <section class="section section--paper">
+    <div class="wrap split">
+      <figure class="split__media rv" style="margin:0">
+        <img src="img/cabine-2.jpg" alt="Cabine de jato executivo com poltronas de couro" loading="lazy" width="1600" height="1067">
+        <figcaption>Cabine de um jato super médio</figcaption>
+      </figure>
+      <div class="split__body rv" style="--d:.1s">
+        <span class="label"><b>01</b> A empresa</span>
+        <h2>Discrição, precisão e <em>um único responsável</em> pelo seu voo.</h2>
+        <p class="lead">Atendemos executivos, famílias e empresas que precisam chegar com hora marcada, sem filas e sem improviso.</p>
+        <p>Comparamos aeronaves e operadores certificados, negociamos o melhor custo para a sua missão e acompanhamos o voo em tempo real. Você fala com a mesma pessoa do primeiro contato ao pouso.</p>
+        <div class="stats">
+          <div><b>24/7</b><span>atendimento com plantão operacional</span></div>
+          <div><b>+120</b><span>aeronaves avaliadas na rede de operadores</span></div>
+          <div><b>30 min</b><span>para a primeira proposta em horário comercial</span></div>
+        </div>
+        <a class="link" href="sobre.html">Conheça a empresa <svg class="arr" viewBox="0 0 22 10" aria-hidden="true"><path d="M0 5h20M16 1l4 4-4 4"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUÇÕES -->
+  <section class="section">
+    <div class="wrap">
+      <div class="head rv">
+        <div>
+          <span class="label"><b>02</b> Soluções</span>
+          <h2>A aeronave certa para <em>cada missão.</em></h2>
+        </div>
+        <p>Da ponte aérea particular à viagem intercontinental, passando por traslados de helicóptero e missões que não admitem atraso.</p>
+      </div>
+      <div class="services">
+        <article class="svc rv">
+          <div class="svc__img"><img src="img/jato-voo.jpg" alt="Jato executivo em voo ao entardecer" loading="lazy" width="800" height="660"></div>
+          <div class="svc__b">
+            <span class="svc__n">01 · Jatos</span>
+            <h3>Jatos executivos</h3>
+            <p>Do jato leve ao longo alcance, com rota, horário e serviço de bordo definidos por você.</p>
+            <a class="link" href="servicos.html#jatos">Saiba mais <svg class="arr" viewBox="0 0 22 10" aria-hidden="true"><path d="M0 5h20M16 1l4 4-4 4"/></svg></a>
+          </div>
+        </article>
+        <article class="svc rv" style="--d:.08s">
+          <div class="svc__img"><img src="img/heliponto.jpg" alt="Heliponto no topo de edifício corporativo" loading="lazy" width="800" height="660"></div>
+          <div class="svc__b">
+            <span class="svc__n">02 · Helicópteros</span>
+            <h3>Helicópteros</h3>
+            <p>Do aeroporto ao escritório, do escritório à fazenda. Trechos curtos sem trânsito.</p>
+            <a class="link" href="servicos.html#helicopteros">Saiba mais <svg class="arr" viewBox="0 0 22 10" aria-hidden="true"><path d="M0 5h20M16 1l4 4-4 4"/></svg></a>
+          </div>
+        </article>
+        <article class="svc rv" style="--d:.16s">
+          <div class="svc__img"><img src="img/turbo-tbm.jpg" alt="Turboélice executivo na pista" loading="lazy" width="800" height="660"></div>
+          <div class="svc__b">
+            <span class="svc__n">03 · Turboélices</span>
+            <h3>Turboélices</h3>
+            <p>Acesso a pistas curtas e cidades sem aviação comercial, com excelente custo por hora.</p>
+            <a class="link" href="servicos.html#turboelices">Saiba mais <svg class="arr" viewBox="0 0 22 10" aria-hidden="true"><path d="M0 5h20M16 1l4 4-4 4"/></svg></a>
+          </div>
+        </article>
+        <article class="svc rv" style="--d:.24s">
+          <div class="svc__img"><img src="img/cockpit.jpg" alt="Cabine de comando à noite" loading="lazy" width="800" height="660"></div>
+          <div class="svc__b">
+            <span class="svc__n">04 · Missões especiais</span>
+            <h3>Missões especiais</h3>
+            <p>UTI aérea, transporte de órgãos e logística urgente, com acionamento imediato.</p>
+            <a class="link" href="servicos.html#missoes">Saiba mais <svg class="arr" viewBox="0 0 22 10" aria-hidden="true"><path d="M0 5h20M16 1l4 4-4 4"/></svg></a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FROTA -->
+  <section class="section section--dark" id="frota">
+    <div class="wrap">
+      <div class="head rv">
+        <div>
+          <span class="label"><b>03</b> Frota</span>
+          <h2>Categorias para cada distância e <em>cada grupo.</em></h2>
+        </div>
+        <p>Trabalhamos com uma rede de operadores certificados para indicar a aeronave mais adequada ao trecho, ao número de passageiros e ao seu orçamento.</p>
+      </div>
+      <div class="tabs rv" role="tablist" aria-label="Categorias da frota" data-filter="#frota-home">
+        <button type="button" role="tab" data-cat="jatos" aria-selected="true">Jatos executivos</button>
+        <button type="button" role="tab" data-cat="turbo" aria-selected="false">Turboélices</button>
+        <button type="button" role="tab" data-cat="heli" aria-selected="false">Helicópteros</button>
+      </div>
+      <div class="fleet" id="frota-home" data-frota></div>
+      <p class="fleet-note">Capacidades, alcance e velocidade de cruzeiro aproximados. Variam conforme o modelo, a configuração e as condições do voo.</p>
+      <a class="link" style="margin-top:28px" href="frota.html">Ver frota completa <svg class="arr" viewBox="0 0 22 10" aria-hidden="true"><path d="M0 5h20M16 1l4 4-4 4"/></svg></a>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA -->
+  <section class="section section--paper">
+    <div class="wrap">
+      <div class="head rv">
+        <div>
+          <span class="label"><b>04</b> Como funciona</span>
+          <h2>Do pedido ao embarque em <em>quatro etapas.</em></h2>
+        </div>
+        <p>Um processo simples para você e rigoroso nos bastidores: segurança, documentação e logística verificadas antes de cada voo.</p>
+      </div>
+      <ol class="steps">
+        <li class="rv"><h3>Solicitação</h3><p>Informe origem, destino, data e passageiros pelo site, WhatsApp ou telefone.</p></li>
+        <li class="rv" style="--d:.08s"><h3>Proposta</h3><p>Enviamos opções de aeronaves com valores fechados e condições claras.</p></li>
+        <li class="rv" style="--d:.16s"><h3>Confirmação</h3><p>Cuidamos de tripulação, catering, transfer e terminal executivo (FBO).</p></li>
+        <li class="rv" style="--d:.24s"><h3>Embarque</h3><p>Chegue minutos antes, embarque sem filas e acompanhe o voo com a nossa equipe.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- EXPERIÊNCIA -->
+  <section class="feature">
+    <img src="img/cabine-couro.jpg" alt="" loading="lazy" width="1200" height="800">
+    <div class="wrap rv">
+      <span class="label"><b>05</b> A bordo</span>
+      <h2>Cada detalhe, <em>do seu jeito.</em></h2>
+      <p>O voo começa antes da decolagem. Organizamos tudo o que acontece em terra e a bordo para que você só precise se preocupar com o destino.</p>
+      <div class="perks">
+        <div><b>Catering sob medida</b><span>Menu de restaurante, vinhos e restrições alimentares atendidas.</span></div>
+        <div><b>Terminal executivo</b><span>Embarque em FBO, sem filas, com o carro na escada da aeronave.</span></div>
+        <div><b>Privacidade total</b><span>Lista de passageiros sigilosa e tripulação com acordo de confidencialidade.</span></div>
+        <div><b>Pets a bordo</b><span>Seu animal de estimação viaja na cabine, com você.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AERONAVES À VENDA -->
+  <section class="section section--stone">
+    <div class="wrap">
+      <div class="head rv">
+        <div>
+          <span class="label"><b>06</b> Aeronaves à venda</span>
+          <h2>Uma carteira selecionada para <em>comprar com segurança.</em></h2>
+        </div>
+        <p>Intermediação completa de compra e venda: avaliação, inspeção pré-compra, documentação e entrega técnica. Dossiês enviados apenas mediante solicitação.</p>
+      </div>
+      <div class="listings" data-venda="3"></div>
+      <p class="disclaimer">Anúncios ilustrativos. Valores sob consulta e informações sujeitas a confirmação.</p>
+      <a class="link" style="margin-top:28px" href="aeronaves.html">Ver todas as aeronaves <svg class="arr" viewBox="0 0 22 10" aria-hidden="true"><path d="M0 5h20M16 1l4 4-4 4"/></svg></a>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTO -->
+  <section class="section section--paper">
+    <div class="wrap quote-block rv">
+      <span class="label"><b>07</b> Clientes</span>
+      <blockquote style="margin-top:30px">“Decidimos a viagem às dez da noite e às sete da manhã estávamos decolando. Tudo resolvido por uma única pessoa, sem uma ligação a mais.”</blockquote>
+      <cite>Diretor de uma companhia de capital aberto · São Paulo</cite>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="wrap split split--top">
+      <div class="rv">
+        <span class="label"><b>08</b> Perguntas frequentes</span>
+        <h2 style="margin-top:18px">Dúvidas antes de <em>voar.</em></h2>
+        <p style="margin-top:22px;color:var(--mute);max-width:40ch">Não encontrou o que procura? Nossa equipe responde a qualquer hora pelo WhatsApp.</p>
+        <a class="btn btn--line" style="margin-top:32px" data-wa-msg="Olá! Tenho uma dúvida sobre voo executivo." href="#">Enviar minha dúvida</a>
+      </div>
+      <div class="faq rv" style="--d:.1s">
+        <details open><summary>Vocês são uma companhia aérea?<i aria-hidden="true"></i></summary><p>Não. Somos uma empresa de intermediação e gestão de voos executivos. Selecionamos e contratamos, em seu nome, operadores de táxi aéreo certificados pela ANAC, responsáveis pela operação da aeronave.</p></details>
+        <details><summary>Com quanto tempo de antecedência preciso solicitar?<i aria-hidden="true"></i></summary><p>Quanto antes, mais opções. Mas organizamos voos com poucas horas de antecedência, inclusive à noite, nos fins de semana e em feriados, conforme a disponibilidade das aeronaves.</p></details>
+        <details><summary>O valor da cotação é o valor final?<i aria-hidden="true"></i></summary><p>Sim. A proposta informa o valor total da aeronave para a missão, com taxas aeroportuárias, pernoite da tripulação e reposicionamento. Qualquer item opcional, como catering especial, aparece separado.</p></details>
+        <details><summary>Vocês fazem voos internacionais?<i aria-hidden="true"></i></summary><p>Sim. Coordenamos autorizações de sobrevoo, despacho aduaneiro, imigração e escalas técnicas para destinos na América do Sul, Estados Unidos, Europa e outros continentes.</p></details>
+        <details><summary>Posso vender ou colocar minha aeronave para fretamento?<i aria-hidden="true"></i></summary><p>Sim. Fazemos a avaliação de mercado, a divulgação discreta para compradores qualificados e todo o acompanhamento da negociação. Também apresentamos opções de gestão e agregação a operadores para gerar receita com a aeronave.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <img src="img/cidade.jpg" alt="" loading="lazy" width="2000" height="1333">
+    <div class="wrap">
+      <div class="rv">
+        <span class="label"><b>EA</b> Próximo voo</span>
+        <h2>Para onde você precisa ir <em>amanhã?</em></h2>
+        <p>Fale agora com a nossa equipe e receba opções de aeronaves com valores fechados.</p>
+      </div>
+      <div class="cta__actions rv" style="--d:.1s">
+        <a class="btn" data-wa-msg="Olá! Gostaria de cotar um voo executivo." href="#">Cotar pelo WhatsApp</a>
+        <a class="btn btn--light" href="contato.html#cotacao">Formulário completo</a>
+        <p class="cta__phone">Plantão 24 horas<a data-tel href="#">+55 11 0000-0000</a></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
