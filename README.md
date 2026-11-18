@@ -24,7 +24,7 @@ Os formulários não guardam dados: montam a mensagem e abrem o WhatsApp.
 ## Paletas
 O site tem duas paletas, para o cliente escolher na prévia (botão "Paleta" no rodapé da tela, ou `?tema=azul` / `?tema=executiva` no endereço):
 - **Executiva:** preto-grafite e dourado champanhe, títulos em Cormorant Garamond.
-- **Atual:** o azul que a FlyVIP já usa, títulos em Sora.
+- **Atual:** fundo branco, textos em grafite e detalhes no azul FlyVIP, títulos em Sora. Fotos sem filtro colorido.
 
 As cores ficam nas variáveis do `style.css` (bloco `html[data-tema="azul"]`). Depois da escolha, basta fixar a paleta e tirar o botão (`initTema` no `script.js`).
 
