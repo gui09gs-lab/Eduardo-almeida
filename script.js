@@ -1,12 +1,12 @@
-/* Eduardo Almeida · Aviação Executiva
+/* FlyVIP · Aviação Executiva
    Cabeçalho, rodapé, frota, aeronaves à venda e formulários são montados aqui
    para que todas as páginas fiquem iguais. Para trocar contatos, edite CONTATO. */
 
 const CONTATO = {
-  whatsapp: '5511000000000',            // só números, com 55 + DDD
-  telefone: '+55 11 0000-0000',
-  telefoneLink: '+551100000000',
-  email: 'contato@exemplo.com.br',
+  whatsapp: '5511927486260',            // só números, com 55 + DDD
+  telefone: '+55 11 92748-6260',
+  telefoneLink: '+5511927486260',
+  email: 'contato@flyvip.com.br',
   endereco: 'Hangar executivo · Aeroporto de Congonhas',
   cidade: 'São Paulo · SP',
   instagram: '#',
@@ -41,7 +41,7 @@ const VENDA = [
 const ICON = {
   wa: '<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3Zm0 23.7c-2 0-4-.6-5.7-1.6l-.4-.2-3.9 1 1-3.8-.3-.4A10.7 10.7 0 1 1 16 26.7Zm5.9-8c-.3-.2-1.9-1-2.2-1-.3-.2-.5-.2-.7.1l-1 1.3c-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6.3-.5c.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6 0-.9.4-.3.3-1.1 1.1-1.1 2.7s1.2 3.1 1.3 3.3c.2.2 2.3 3.5 5.5 4.9 2.7 1.1 3.3.9 3.8.8.6 0 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5 0-.2-.3-.3-.6-.4Z"/></svg>',
   arr: '<svg class="arr" viewBox="0 0 22 10" aria-hidden="true"><path d="M0 5h20M16 1l4 4-4 4"/></svg>',
-  mark: '<svg class="brand__mark" viewBox="0 0 44 44" aria-hidden="true"><circle class="ring" cx="22" cy="22" r="21"/><text x="22" y="26.5" text-anchor="middle">EA</text><path class="wing" d="M10 31.4 22 28.6l12 2.8-12-1.2z"/></svg>'
+  mark: '<svg class="brand__mark" viewBox="20 10 210 170" aria-hidden="true"><path class="fin" d="M70 30 L98 30 C108 30 114 34 120 44 C140 76 170 94 218 102 L84 102 L66 164 L40 164 Z"/><path class="wing" d="M90 114 L186 114 C146 124 110 138 82 158 Z"/></svg>'
 };
 
 const PAGINAS = [
@@ -65,7 +65,7 @@ function montarCabecalho() {
   header.className = 'topbar';
   header.id = 'topbar';
   header.innerHTML = `<div class="wrap"><div class="topbar__in">
-    <a class="brand" href="./" aria-label="Eduardo Almeida Aviação Executiva, início">${ICON.mark}<span class="brand__txt"><b>Eduardo Almeida</b><small>Aviação Executiva</small></span></a>
+    <a class="brand" href="./" aria-label="FlyVIP Aviação Executiva, início">${ICON.mark}<span class="brand__txt"><b>FlyVIP</b><small>Aviação Executiva</small></span></a>
     <nav class="nav" id="nav" aria-label="Principal">
       ${PAGINAS.map(([id, href, nome]) => `<a href="${href}"${id === page ? ' aria-current="page"' : ''}>${nome}</a>`).join('')}
       <a class="btn nav__cta" href="index.html#planejar">Planejar viagem</a>
@@ -86,7 +86,7 @@ function montarRodape() {
   footer.innerHTML = `<div class="wrap">
     <div class="foot__top">
       <div>
-        <a class="brand" href="./" aria-label="Início">${ICON.mark}<span class="brand__txt"><b>Eduardo Almeida</b><small>Aviação Executiva</small></span></a>
+        <a class="brand" href="./" aria-label="Início">${ICON.mark}<span class="brand__txt"><b>FlyVIP</b><small>Aviação Executiva</small></span></a>
         <p class="foot__about">Viagens executivas porta a porta, no Brasil e no exterior. Atendimento pessoal, 24 horas.</p>
       </div>
       <div><h4>Viagens</h4><ul>
@@ -112,8 +112,8 @@ function montarRodape() {
       </ul></div>
     </div>
     <div class="foot__bottom">
-      <p class="foot__legal">A Eduardo Almeida Aviação Executiva intermedeia e coordena voos fretados, realizados exclusivamente por operadores certificados pela ANAC (RBAC 135). Valores, disponibilidade e aeronaves sujeitos a confirmação no momento da cotação.</p>
-      <p>© ${ano} Eduardo Almeida Aviação Executiva</p>
+      <p class="foot__legal">A FlyVIP Aviação Executiva intermedeia e coordena voos fretados, realizados exclusivamente por operadores certificados pela ANAC (RBAC 135). Valores, disponibilidade e aeronaves sujeitos a confirmação no momento da cotação.</p>
+      <p>© ${ano} FlyVIP Aviação Executiva</p>
     </div>
   </div>`;
   document.body.appendChild(footer);
@@ -498,6 +498,25 @@ function initBriefing() {
   calcular();
 }
 
+// Paleta: Executiva (preto e dourado) ou Atual (azul FlyVIP). Só para o cliente escolher na prévia.
+function initTema() {
+  const root = document.documentElement;
+  const box = document.createElement('div');
+  box.className = 'tema';
+  box.setAttribute('role', 'group');
+  box.setAttribute('aria-label', 'Paleta de cores');
+  box.innerHTML = '<span>Paleta</span><button type="button" data-t="executiva">Executiva</button><button type="button" data-t="azul">Atual</button>';
+  const sync = () => box.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', String((root.dataset.tema || 'executiva') === b.dataset.t)));
+  box.addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return;
+    if (b.dataset.t === 'azul') root.dataset.tema = 'azul'; else delete root.dataset.tema;
+    try { localStorage.setItem('flyvip-tema', b.dataset.t); } catch (err) {}
+    sync();
+  });
+  sync();
+  document.body.appendChild(box);
+}
+
 montarCabecalho();
 montarRodape();
 renderListas();
@@ -510,3 +529,4 @@ renderDestinos();
 initBriefing();
 initWaLinks();
 initReveal();
+initTema();

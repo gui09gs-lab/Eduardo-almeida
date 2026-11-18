@@ -1,4 +1,4 @@
-# Eduardo Almeida · Aviação Executiva
+# FlyVIP · Aviação Executiva
 
 Site institucional de fretamento de jatos, turboélices e helicópteros, missões especiais e compra e venda de aeronaves. Sem build nem dependências: HTML, CSS e JavaScript puros.
 
@@ -20,6 +20,13 @@ Site institucional de fretamento de jatos, turboélices e helicópteros, missõe
 - Cabeçalho e rodapé são montados pelo `script.js`, então qualquer mudança vale para todas as páginas.
 
 Os formulários não guardam dados: montam a mensagem e abrem o WhatsApp.
+
+## Paletas
+O site tem duas paletas, para o cliente escolher na prévia (botão "Paleta" no rodapé da tela, ou `?tema=azul` / `?tema=executiva` no endereço):
+- **Executiva:** preto-grafite e dourado champanhe, títulos em Cormorant Garamond.
+- **Atual:** o azul que a FlyVIP já usa, títulos em Sora.
+
+As cores ficam nas variáveis do `style.css` (bloco `html[data-tema="azul"]`). Depois da escolha, basta fixar a paleta e tirar o botão (`initTema` no `script.js`).
 
 ## Direção visual
 Tema *black tie*: a sensação de um agente de terno entrando no hangar para escolher a aeronave da missão. Entrada com tarjas de cinema, luz dourada, textura de filme e dossiês "confidenciais". Nenhuma marca, logo, número ou música de franquia de cinema é usada.
