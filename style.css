@@ -916,14 +916,14 @@ body::after { content: ""; position: fixed; inset: -50%; z-index: 30; pointer-ev
   .brand__txt b { font-size: 1.15rem; }
 }
 
-/* ---------- marca FlyVIP: cauda + asa formando o F ---------- */
+/* ---------- marca Flysy: cauda + asa formando o F ---------- */
 .brand__mark { width: 54px; height: 44px; }
 .brand__mark .fin { fill: var(--brass-lt); }
 .brand__mark .wing { fill: var(--brass); }
 .topbar.is-fixed .brand__mark .wing, .foot .brand__mark .wing { fill: var(--brass); }
 .brand__txt b { letter-spacing: .2em; }
 
-/* ---------- paleta Atual (azul FlyVIP): fundo branco, detalhes em azul ----------
+/* ---------- paleta Atual (azul Flysy): fundo branco, detalhes em azul ----------
    Sem filtro azul nas fotos: as fotos levam só uma sombra neutra onde há texto por cima. */
 html[data-tema="azul"] {
   --noir: #ffffff; --noir-1: #f4f7fb; --noir-2: #ffffff; --noir-3: #e8eef6;

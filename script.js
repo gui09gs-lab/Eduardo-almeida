@@ -1,4 +1,4 @@
-/* FlyVIP · Aviação Executiva
+/* Flysy · Aviação Executiva
    Cabeçalho, rodapé, frota, aeronaves à venda e formulários são montados aqui
    para que todas as páginas fiquem iguais. Para trocar contatos, edite CONTATO. */
 
@@ -6,7 +6,7 @@ const CONTATO = {
   whatsapp: '5511927486260',            // só números, com 55 + DDD
   telefone: '+55 11 92748-6260',
   telefoneLink: '+5511927486260',
-  email: 'contato@flyvip.com.br',
+  email: 'contato@flysy.com.br',
   endereco: 'Hangar executivo · Aeroporto de Congonhas',
   cidade: 'São Paulo · SP',
   instagram: '#',
@@ -65,7 +65,7 @@ function montarCabecalho() {
   header.className = 'topbar';
   header.id = 'topbar';
   header.innerHTML = `<div class="wrap"><div class="topbar__in">
-    <a class="brand" href="./" aria-label="FlyVIP Aviação Executiva, início">${ICON.mark}<span class="brand__txt"><b>FlyVIP</b><small>Aviação Executiva</small></span></a>
+    <a class="brand" href="./" aria-label="Flysy Aviação Executiva, início">${ICON.mark}<span class="brand__txt"><b>Flysy</b><small>Aviação Executiva</small></span></a>
     <nav class="nav" id="nav" aria-label="Principal">
       ${PAGINAS.map(([id, href, nome]) => `<a href="${href}"${id === page ? ' aria-current="page"' : ''}>${nome}</a>`).join('')}
       <a class="btn nav__cta" href="index.html#planejar">Planejar viagem</a>
@@ -86,7 +86,7 @@ function montarRodape() {
   footer.innerHTML = `<div class="wrap">
     <div class="foot__top">
       <div>
-        <a class="brand" href="./" aria-label="Início">${ICON.mark}<span class="brand__txt"><b>FlyVIP</b><small>Aviação Executiva</small></span></a>
+        <a class="brand" href="./" aria-label="Início">${ICON.mark}<span class="brand__txt"><b>Flysy</b><small>Aviação Executiva</small></span></a>
         <p class="foot__about">Viagens executivas porta a porta, no Brasil e no exterior. Atendimento pessoal, 24 horas.</p>
       </div>
       <div><h4>Viagens</h4><ul>
@@ -112,8 +112,8 @@ function montarRodape() {
       </ul></div>
     </div>
     <div class="foot__bottom">
-      <p class="foot__legal">A FlyVIP Aviação Executiva intermedeia e coordena voos fretados, realizados exclusivamente por operadores certificados pela ANAC (RBAC 135). Valores, disponibilidade e aeronaves sujeitos a confirmação no momento da cotação.</p>
-      <p>© ${ano} FlyVIP Aviação Executiva</p>
+      <p class="foot__legal">A Flysy Aviação Executiva intermedeia e coordena voos fretados, realizados exclusivamente por operadores certificados pela ANAC (RBAC 135). Valores, disponibilidade e aeronaves sujeitos a confirmação no momento da cotação.</p>
+      <p>© ${ano} Flysy Aviação Executiva</p>
     </div>
   </div>`;
   document.body.appendChild(footer);
@@ -498,7 +498,7 @@ function initBriefing() {
   calcular();
 }
 
-// Paleta: Executiva (preto e dourado) ou Atual (azul FlyVIP). Só para o cliente escolher na prévia.
+// Paleta: Executiva (preto e dourado) ou Atual (azul Flysy). Só para o cliente escolher na prévia.
 function initTema() {
   const root = document.documentElement;
   const box = document.createElement('div');
@@ -510,7 +510,7 @@ function initTema() {
   box.addEventListener('click', e => {
     const b = e.target.closest('button'); if (!b) return;
     if (b.dataset.t === 'azul') root.dataset.tema = 'azul'; else delete root.dataset.tema;
-    try { localStorage.setItem('flyvip-tema', b.dataset.t); } catch (err) {}
+    try { localStorage.setItem('flysy-tema', b.dataset.t); } catch (err) {}
     sync();
   });
   sync();
